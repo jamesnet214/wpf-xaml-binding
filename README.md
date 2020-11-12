@@ -5,7 +5,7 @@
 2. MultiBinding
 ### Binding
 ### MultiBinding
-```wpf
+```xaml
 <TextBlock Margin="5,2" Text="This dissappears as the control gets focus...">
     <TextBlock.Visibility>
         <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
