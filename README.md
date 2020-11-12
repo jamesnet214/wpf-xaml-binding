@@ -5,8 +5,8 @@
 2. MultiBinding
 ### Binding
 ### MultiBinding
-```
-<TextBlock Margin="5,2" Text="This dissappears as the control gets focus..." Foreground="{StaticResource brushWatermarkForeground}" >
+```csharp
+<TextBlock Margin="5,2" Text="This dissappears as the control gets focus...">
     <TextBlock.Visibility>
         <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
             <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
