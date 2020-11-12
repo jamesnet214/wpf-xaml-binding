@@ -11,7 +11,7 @@
 <TextBox Text="{Binding Keywords}"/>
 ```
 
-## Binding Element
+### Binding Element
 ```xaml
 <CheckBox x:Name="ckUseEmail"/>
 <TextBlock Text="{Binding ElementName=ckUseEmail, Path=IsChecked}"/>
