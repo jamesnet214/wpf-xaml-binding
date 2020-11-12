@@ -1,9 +1,21 @@
 # wpfxamlbinding
 
 ## Binding
-1. Binding
-2. MultiBinding
+- Binding
+- Binding Element
+- MultiBinding
+- MultiTrigger
 ### Binding
+
+```xaml
+<TextBox Text="{Binding Keywords}"/>
+```
+
+## Binding Element
+```xaml
+<CheckBox x:Name="ckUseEmail"/>
+<TextBlock Text="{Binding ElementName=ckUseEmail}"/>
+```
 ### MultiBinding
 ```xaml
 <TextBlock Margin="5,2" Text="This dissappears as the control gets focus...">
