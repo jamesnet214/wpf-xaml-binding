@@ -15,3 +15,14 @@
     </TextBlock.Visibility>
 </TextBlock>
 ```
+### MultiTrigger
+```xaml
+<MultiTrigger>
+    <MultiTrigger.Conditions>
+        <Condition Property="IsFocused" Value="False"/>
+        <Condition Property="Text" Value=""/>
+    </MultiTrigger.Conditions>
+    <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed"/>
+    <Setter TargetName="PART_PlaceHolder" Property="Visibility" Value="Visible"/>
+</MultiTrigger>
+```
