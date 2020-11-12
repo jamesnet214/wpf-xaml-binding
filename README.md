@@ -14,7 +14,7 @@
 ## Binding Element
 ```xaml
 <CheckBox x:Name="ckUseEmail"/>
-<TextBlock Text="{Binding ElementName=ckUseEmail}"/>
+<TextBlock Text="{Binding ElementName=ckUseEmail, Path=IsChecked}"/>
 ```
 ### MultiBinding
 ```xaml
