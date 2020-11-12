@@ -26,3 +26,7 @@
     <Setter TargetName="PART_PlaceHolder" Property="Visibility" Value="Visible"/>
 </MultiTrigger>
 ```
+### Self Property Binding
+```xaml
+<TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Text}"/>
+```
