@@ -5,7 +5,7 @@ I hope you will also refer to this article for better understanding. [here.](htt
 - Binding
 - Binding Element
 - MultiBinding
-- MultiTrigger
+- Self Property Binding
 ### Binding
 
 ```xaml
@@ -27,17 +27,6 @@ I hope you will also refer to this article for better understanding. [here.](htt
         </MultiBinding>
     </TextBlock.Visibility>
 </TextBlock>
-```
-### MultiTrigger
-```xaml
-<MultiTrigger>
-    <MultiTrigger.Conditions>
-        <Condition Property="IsFocused" Value="False"/>
-        <Condition Property="Text" Value=""/>
-    </MultiTrigger.Conditions>
-    <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed"/>
-    <Setter TargetName="PART_PlaceHolder" Property="Visibility" Value="Visible"/>
-</MultiTrigger>
 ```
 ### Self Property Binding
 ```xaml
