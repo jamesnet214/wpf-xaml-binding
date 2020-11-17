@@ -1,5 +1,5 @@
 # wpfxamlbinding
-
+I hope you will also refer to this article for better understanding. [here.](https://github.com/trigger)
 ## Binding
 - Binding
 - Binding Element
