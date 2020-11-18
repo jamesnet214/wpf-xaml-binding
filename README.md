@@ -34,7 +34,7 @@ I hope you will also refer to this article for better understanding. [here.](htt
 ```
 
 ### Binding (Find Parent)
-imports based on the parent control closest to it.
+Imports based on the parent control closest to it.
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
 ```
