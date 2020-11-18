@@ -38,7 +38,7 @@ Imports based on the parent control closest to it.
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
 ```
-
-```
+In addition to the properties of the controls found, the properties within the DataContext object can be used if it exists.
+```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.SomeProperty}"/>
 ```
