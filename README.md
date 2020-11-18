@@ -32,3 +32,8 @@ I hope you will also refer to this article for better understanding. [here.](htt
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Text}"/>
 ```
+
+### Binding (Find Parent)
+```xaml
+<TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
+```
