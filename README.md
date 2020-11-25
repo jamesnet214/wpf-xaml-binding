@@ -46,7 +46,7 @@ Imports based on the parent control closest to it.
 ```
 In addition to the properties of the controls found, the properties within the DataContext object can be used if it exists.
 ```xaml
-<TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.SomeProperty}"/>
+<TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Email}"/>
 ```
 
 ### Static Property Binding
