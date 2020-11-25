@@ -34,7 +34,7 @@ We hope you also refer to this article for better understanding. [here.](https:/
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
 ```
-Truely, same with this code.
+Truly, same with this code.
 ```xaml
 <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
 ```
