@@ -1,6 +1,6 @@
 # wpfxamlbinding
 > ncoresoftgit [here.](https://github.com/ncoresoftsource/ncoresoftgit)   
-I hope you will also refer to this article for better understanding. [here.](https://github.com/ncoresoftsource/trigger)
+We hope you also refer to this article for better understanding. [here.](https://github.com/ncoresoftsource/trigger)
 ## Binding
 - Binding
 - Binding Element
@@ -34,11 +34,11 @@ I hope you will also refer to this article for better understanding. [here.](htt
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
 ```
-Truhly, same this code
+Truely, same with this code.
 ```xaml
 <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
 ```
-Yes. You no longer have to declare `x:Name` to bind your own propery.
+Yes. You no longer have to declare `x:Name` to binding your own property.
 ### Binding (Find Parent)
 Imports based on the parent control closest to it.
 ```xaml
@@ -50,8 +50,8 @@ In addition to the properties of the controls found, the properties within the D
 ```
 
 ### Static Property Binding
-You can access directly binding property value.   
-First. declare `static` property
+You can access binding property value directly.   
+First, declare `static` property.
 ```csharp
 namespace Exam
 {
@@ -59,20 +59,20 @@ namespace Exam
     {
         private string ExamText { get; set; }
     }
-}
+} 
 ```
 
-Second. using static class in XAML
+Second, using static class in XAML.
 ```xaml
 <Window ... xmlns:exam="clr-namespace:Exam">
 ```
 
-Third. just binding property
+Third, just binding property.
 ```xaml
 <TextBlock Text="{Binding exam:ExamClass.ExamText}"/>
 ```
 
-Or. You can setting Resource key like using `Converter`
+Or, you can set Resource key like using `Converter`.
 ```xaml
 <Window.Resource>
     <exam:ExamClass x:Key="ExamClass">
@@ -81,4 +81,4 @@ Or. You can setting Resource key like using `Converter`
 
 <TextBlock Text="{Binding Source={StaticResource ExamClass}, Path=ExamText}"/>
 ```
-> I never use the Static Property under normal circumstances. This is because data that deviates from their own DataContext (objects) could disrupt the flow of WPF applications as a whole and significantly impair readability. However it is actively using this method to cross over DataContext (or ViewModel) structure and implement fast tests and functions during concept or development stage.
+> I have never used the Static Property under normal circumstances. This is because data that deviates from its own DataContext can disrupt the flow of whole WPF applications and impair readability significantly. However, this method is actively used in the development stage to implement fast testing and functions, as well as in the DataContext (or ViewModel).
