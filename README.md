@@ -53,6 +53,7 @@ namespace Exam
     {
         private string ExamText { get; set; }
     }
+}
 ```
 
 Second. using static class in XAML
@@ -66,7 +67,7 @@ Third. just binding property
 ```
 
 Or. You can setting Resource key like using `Converter`
-```
+```xaml
 <Window.Resource>
     <exam:ExamClass x:Key="ExamClass">
 </Window.Resource>
