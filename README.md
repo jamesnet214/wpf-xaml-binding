@@ -81,3 +81,4 @@ Or. You can setting Resource key like using `Converter`
 
 <TextBlock Text="{Binding Source={StaticResource ExamClass}, Path=ExamText}"/>
 ```
+> I never use the Static Property under normal circumstances. This is because data that deviates from their own DataContext (objects) could disrupt the flow of WPF applications as a whole and significantly impair readability. However it is actively using this method to cross over DataContext (or ViewModel) structure and implement fast tests and functions during concept or development stage.
