@@ -62,7 +62,7 @@ Second. using static class in XAML
 ```
 
 Third. just binding property
-```
+```xaml
 <TextBlock Text="{Binding exam:ExamClass.ExamText}"/>
 ```
 
