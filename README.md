@@ -6,6 +6,8 @@ I hope you will also refer to this article for better understanding. [here.](htt
 - Binding Element
 - MultiBinding
 - Self Property Binding
+- TemplatedParent Binding
+- Static Property Binding
 ### Binding
 
 ```xaml
@@ -30,7 +32,11 @@ I hope you will also refer to this article for better understanding. [here.](htt
 ```
 ### Self Property Binding
 ```xaml
-<TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Text}"/>
+<TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
+```
+Truhly, same this code
+```xaml
+<TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
 ```
 
 ### Binding (Find Parent)
