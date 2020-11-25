@@ -57,7 +57,7 @@ namespace Exam
 {
     public class ExamClass
     {
-        private string ExamText { get; set; }
+        public static string ExamText { get; set; }
     }
 } 
 ```
