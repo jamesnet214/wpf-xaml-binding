@@ -42,3 +42,35 @@ In addition to the properties of the controls found, the properties within the D
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.SomeProperty}"/>
 ```
+
+### Static Property Binding
+You can access directly binding property value.   
+First. declare `static` property
+```csharp
+namespace Exam
+{
+    public class ExamClass
+    {
+        private string ExamText { get; set; }
+    }
+```
+
+Second. using static class in XAML
+```xaml
+<Window ... xmlns:exam="clr-namespace:Exam">
+```
+
+Third. just binding property
+```
+<TextBlock Text="{Binding exam:ExamClass.ExamText}"/>
+```
+
+Or. You can setting Resource key like using `Converter`
+```
+<Window.Resource>
+    <exam:ExamClass x:Key="ExamClass">
+</Window.Resource>
+...
+
+<TextBlock Text="{Binding Source={StaticResource ExamClass}, Path=ExamText}"/>
+```
