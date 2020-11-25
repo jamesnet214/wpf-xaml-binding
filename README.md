@@ -38,7 +38,7 @@ Truly, same with this code.
 ```xaml
 <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
 ```
-Yes. You no longer have to declare `x:Name` to binding your own property.
+Yes. You no longer have to declare `x:Name` to bind your own property.
 ### Binding (Find Parent)
 Imports based on the parent control closest to it.
 ```xaml
