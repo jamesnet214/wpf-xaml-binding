@@ -26,6 +26,7 @@ TextBlock > FrameworkElement
 UserControl > ContentControl > FrameworkElement > Control > FrameworkElement
 ```
 All other controls are similarly inherited by the FrameworkElement.
+#### All control have 
 ```csharp
 Button ... > FrameworkElement
 Window ... > FrameworkElement
