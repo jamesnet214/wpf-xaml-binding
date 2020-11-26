@@ -53,7 +53,8 @@ When assigning a value to DataContext directly from Xaml, resource definitions a
     <TextBlock Text="{Binding}" DataContext="{StaticResource Price"/>
 </StackPanel>
 ```
-> However, there are very few cases where Value Type is binding directly into DataContext.
+> However, there are very few cases where Value Type is binding directly into DataContext.   
+Why? Because we're going to bind an object.
 
 ### And, Another type
 Not only String but also various types are possible. Because DataContext is an object type.
