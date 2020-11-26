@@ -53,8 +53,8 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 </Window.Resources>
 ...
 <StackPanel>
-    <TextBlock Text="{Binding}" DataContext="{StaticResource IsEnabled"/>
-    <TextBlock Text="{Binding}" DataContext="{StaticResource Price"/>
+    <TextBlock Text="{Binding}" DataContext="{StaticResource IsEnabled}"/>
+    <TextBlock Text="{Binding}" DataContext="{StaticResource Price}"/>
 </StackPanel>
 ```
 > However, there are very few cases where Value Type is binding directly into DataContext.   
