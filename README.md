@@ -25,12 +25,11 @@ TextBlock > FrameworkElement
 ```csharp
 UserControl > ContentControl > FrameworkElement > Control > FrameworkElement
 ```
+All other controls are similarly inherited by the FrameworkElement.
 ```csharp
-TextBox : FrameworkElement
-TextBlock : FrmaeworkElement
-Button : FrameworkElement
-Window : FrameworkElement
-UserControl : FrameworkElement
+TextBox ... > FrameworkElement
+Button ... > FrameworkElement
+Window ... > FrameworkElement
 ...
 ```
 And, All control exists `DataContext`
