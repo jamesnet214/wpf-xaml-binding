@@ -29,6 +29,17 @@ And, All control exists `DataContext`
 // myWindow.DataContext
 ...
 ```
+If you assign a value to the DataContext Property, the value is the base for Binding of the control.
+
+```
+myTextBox.DataContext = "WPF";
+```
+Using `DataContext` on `TextProperty`
+```
+<TextBox x:Name="myTextBox" Text="{Binding}"/>
+```
+
+
 ### Binding
 string property
 ```xaml
