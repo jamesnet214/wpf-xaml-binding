@@ -35,6 +35,7 @@ The value bound to `Text="{Binding}"` is passed directly from the nearest DataCo
 ### And, Another type
 Not only String but also various types are possible. Because DataContext is an object type.
 #### Type integer
+When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integrer and Boolean because all strings are recognized as String.
 ```xaml
 <Window.Resources>
     <sys:Int32 x:Key="YEAR">2020</sys:Int32>
