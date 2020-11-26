@@ -33,7 +33,7 @@ Binding can directly recall values for the DataContext type format starting with
 The value bound to `Text="{Binding}"` is passed directly from the nearest DataContext, TextBlock. Therefore, the Binding result value of Text is 'James'.      
 
 #### Type integer
-When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integrer and Boolean because all strings are recognized as String.
+When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integrer and Boolean because all strings are recognized as String.   
 First, using System `mscrolib` in Xaml
 ```xaml
 xmlns:sys="clr-namespace:System;assembly=mscorlib"
