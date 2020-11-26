@@ -13,7 +13,7 @@ We hope you also refer to this article for better understanding. [here.](https:/
 ## 2. DataContext
 DataContext is the DependencyProperty Property included in the FrameworkElement.
 ```csharp
-public class FrameworkElement : UIElement, ...
+public class FrameworkElement : UIElement
 {
     public static readonly DependencyProperty DataContextProperty;
     public object DataContext { get; set; }
