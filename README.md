@@ -24,12 +24,16 @@ And, All ui controls in wpf inherit the FrameworkElement class.
 
 ### DataContext is always the reference point for Binding.
 Binding can directly recall values for the DataContext type format starting with the nearest DataContext.
-```
+```xaml
 <TextBlock Text="{Binding}" DataContext="James"/>
 ```
 The value bound to `Text="{Binding}"` is passed directly from the nearest DataContext, TextBlock. Therefore, the Binding result value of Text is 'James'.      
 
+### And, Another type
 Not only String but also various types are possible. Because DataContext is an object type.
+```xaml
+<TextBlock Text="{Binding}" DataContext="7"/>
+```
 
 
 TBD....
