@@ -63,48 +63,6 @@ Why? Because we're going to bind an object.
 ### And, Another type
 Not only String but also various types are possible. Because DataContext is an object type.
 
-TBD....
-> DataContext is object-type Property. And this is included in the FrameworkElement class. And given that all of the WPF's UI objects have DataContext Properties, we can imagine all of these objects inheriting the FrameworkElement somewhere in the top. And I assure you, just knowing this existence of FrameworkElement is a big help to you in the future to take Binding behavior in WPF more meaningfully, so I mentioned it before I started.   
-
-### All the controls present in Wpf are inherited from the FrameworkElement.   
-> NcoreExam.DataContextTest/Views/DataContextView.xaml `Demo`   
-
-This sample screen shows the inheritance scheme of all the controls in the WPF. Check out the existence of FrameworkElement and DataContext Properties.
-#### TextBlock inheritance
-```csharp
-TextBlock > FrameworkElement
-```
-#### UserControl inheritance
-```csharp
-UserControl > ContentControl > FrameworkElement > Control > FrameworkElement
-```
-All other controls are similarly inherited by the FrameworkElement.
-#### All control have 
-```csharp
-Button ... > FrameworkElement
-Window ... > FrameworkElement
-Slider ... > FrameworkElement
-...
-```
-And, All control exists `DataContext`
-```csharp
-// Because both getter and setter are possible object types, anything can be put in DataContext.
-myTextBox.DataContext = "James";
-myButton.DataContext = "Elena";
-myWindow.DataContext = 2020;
-myUc.DataContext = true;
-...
-```
-If you assign a value to the DataContext Property, the value is the base for Binding of the control.
-
-```csharp
-myTextBox.DataContext = "WPF";
-```
-Using `DataContext` on `TextProperty`
-```xaml
-<TextBox x:Name="myTextBox" Text="{Binding}"/>
-```
-
 
 ## Binding
 
