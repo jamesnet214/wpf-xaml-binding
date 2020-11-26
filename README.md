@@ -15,7 +15,9 @@ We hope you also refer to this article for better understanding. [here.](https:/
 ```csharp
 public class FrameworkElement : UIElement, ...
 {
-   public static readonly DependencyProperty DataContextProperty;
+    public static readonly DependencyProperty DataContextProperty;
+
+    public object DataContext { get; set; }
 }
 ```
 
