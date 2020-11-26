@@ -15,6 +15,7 @@ We hope you also refer to this article for better understanding. [here.](https:/
 
 ### All the controls present in Wpf are inherited from the FrameworkElement.   
 > NcoreExam.DataContextTest/Views/DataContextView.xaml `Demo`
+This sample screen shows the inheritance scheme of all the controls in the WPF. Check out the existence of FrameworkElement and DataContext Properties.
 ```csharp
 TextBox : FrameworkElement
 TextBlock : FrmaeworkElement
