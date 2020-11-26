@@ -45,7 +45,9 @@ Using `DataContext` on `TextProperty`
 ```
 
 
-### Binding
+## Binding
+
+### DataContext Binding
 string property
 ```xaml
 <TextBox Text="{Binding Keywords}"/>
