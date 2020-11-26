@@ -27,9 +27,9 @@ UserControl > ContentControl > FrameworkElement > Control > FrameworkElement
 ```
 All other controls are similarly inherited by the FrameworkElement.
 ```csharp
-TextBox ... > FrameworkElement
 Button ... > FrameworkElement
 Window ... > FrameworkElement
+Slider ... > FrameworkElement
 ...
 ```
 And, All control exists `DataContext`
