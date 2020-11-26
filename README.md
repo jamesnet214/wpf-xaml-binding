@@ -32,8 +32,6 @@ Binding can directly recall values for the DataContext type format starting with
 ```
 The value bound to `Text="{Binding}"` is passed directly from the nearest DataContext, TextBlock. Therefore, the Binding result value of Text is 'James'.      
 
-### And, Another type
-Not only String but also various types are possible. Because DataContext is an object type.
 #### Type integer
 When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integrer and Boolean because all strings are recognized as String.
 ```xaml
@@ -43,7 +41,22 @@ When assigning a value to DataContext directly from Xaml, resource definitions a
 ...
 <TextBlock Text="{Binding}" DataContext="{StaticResource YEAR"/>
 ```
+#### All type of value
+```xaml
+<Window.Resources>
+    <sys:Boolean x:Key="IsEnabled">true</sys:Boolean>
+    <sys:double x:Key="Price">7.77</sys:double>
+</Window.Resources>
+...
+<StackPanel>
+    <TextBlock Text="{Binding}" DataContext="{StaticResource IsEnabled"/>
+    <TextBlock Text="{Binding}" DataContext="{StaticResource Price"/>
+</StackPanel>
 
+```
+
+### And, Another type
+Not only String but also various types are possible. Because DataContext is an object type.
 
 TBD....
 > DataContext is object-type Property. And this is included in the FrameworkElement class. And given that all of the WPF's UI objects have DataContext Properties, we can imagine all of these objects inheriting the FrameworkElement somewhere in the top. And I assure you, just knowing this existence of FrameworkElement is a big help to you in the future to take Binding behavior in WPF more meaningfully, so I mentioned it before I started.   
