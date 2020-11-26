@@ -7,11 +7,11 @@ using System.Windows;
 // 어셈블리에 대한 일반 정보는 다음 특성 집합을 통해 
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이러한 특성 값을 변경하세요.
-[assembly: AssemblyTitle("NcoreExam.DataContext_01")]
+[assembly: AssemblyTitle("NcoreExam.DataContextTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NcoreExam.DataContext_01")]
+[assembly: AssemblyProduct("NcoreExam.DataContextTest")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -31,13 +31,13 @@ using System.Windows;
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
 
-[assembly: ThemeInfo(
+[assembly:ThemeInfo(
     ResourceDictionaryLocation.None, //테마별 리소스 사전의 위치
-                                     //(페이지 또는 응용 프로그램 리소스 사진에
-                                     // 리소스가 없는 경우에 사용됨)
+                             //(페이지 또는 응용 프로그램 리소스 사진에
+                             // 리소스가 없는 경우에 사용됨)
     ResourceDictionaryLocation.SourceAssembly //제네릭 리소스 사전의 위치
-                                              //(페이지 또는 응용 프로그램 리소스 사진에
-                                              // 리소스가 없는 경우에 사용됨)
+                                      //(페이지 또는 응용 프로그램 리소스 사진에
+                                      // 리소스가 없는 경우에 사용됨)
 )]
 
 

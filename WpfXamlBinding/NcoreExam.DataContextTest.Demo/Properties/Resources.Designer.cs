@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NcoreExam.DataContext_01.Properties
+namespace NcoreExam.DataContextTest.Demo.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace NcoreExam.DataContext_01.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NcoreExam.DataContext_01.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NcoreExam.DataContextTest.Demo.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
