@@ -11,7 +11,8 @@ We hope you also refer to this article for better understanding. [here.](https:/
 - Static Property Binding
 
 ## 2. DataContext
-> DataContext is object-type Property. And this is included in the FrameworkElement class. And given that all of the WPF's UI objects have DataContext Properties, we can imagine all of these objects inheriting the FrameworkElement somewhere in the top. And I assure you, just knowing this existence of FrameworkElement is a big help to you in the future to take Binding behavior in WPF more meaningfully, so I mentioned it before I started.
+> DataContext is object-type Property. And this is included in the FrameworkElement class. And given that all of the WPF's UI objects have DataContext Properties, we can imagine all of these objects inheriting the FrameworkElement somewhere in the top. And I assure you, just knowing this existence of FrameworkElement is a big help to you in the future to take Binding behavior in WPF more meaningfully, so I mentioned it before I started.   
+
 Inheriting FrameworkElement of WPF UI Control Classis
 ```csharp
 TextBox : FrameworkElement
