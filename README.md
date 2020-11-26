@@ -20,6 +20,7 @@ public class FrameworkElement : UIElement, ...
 }
 ```
 And, All ui controls in wpf inherit the FrameworkElement class.   
+> At this point in learning Binding or DataContext, there is no need to study and study FrameworkElement in greater depth. However, this is to briefly mention the fact that the closest object that can encompass all UI controls is the FrameworkElement.   
 
 ### DataContext is always the reference point for Binding.
 Binding can directly recall values for the DataContext type format starting with the nearest DataContext.
