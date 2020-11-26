@@ -23,19 +23,21 @@ UserControl : FrameworkElement
 ...
 ```
 And, All control exists `DataContext`
-```
-// myTextBox.DataContext
-// myButton.DataContext
-// myWindow.DataContext
+```csharp
+// Because both getter and setter are possible object types, anything can be put in DataContext.
+myTextBox.DataContext = "James";
+myButton.DataContext = "Elena";
+myWindow.DataContext = 2020;
+myUc.DataContext = true;
 ...
 ```
 If you assign a value to the DataContext Property, the value is the base for Binding of the control.
 
-```
+```csharp
 myTextBox.DataContext = "WPF";
 ```
 Using `DataContext` on `TextProperty`
-```
+```xaml
 <TextBox x:Name="myTextBox" Text="{Binding}"/>
 ```
 
