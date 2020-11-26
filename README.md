@@ -11,7 +11,7 @@ We hope you also refer to this article for better understanding. [here.](https:/
 - Static Property Binding
 
 ## 2. DataContext
-###
+DataContext is the DependencyProperty Property included in the FrameworkElement.
 ```csharp
 public class FrameworkElement : UIElement, ...
 {
