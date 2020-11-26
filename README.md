@@ -27,8 +27,9 @@ Binding can directly recall values for the DataContext type format starting with
 ```
 <TextBlock Text="{Binding}" DataContext="James"/>
 ```
-As Binding brings the nearest DataContext value, the actual value of Binding assigned to TextBlock Text Property is 'James'.      
+The value bound to Text is passed directly from the nearest DataContext, TextBlock. Therefore, the Binding result value of Text is 'James'.      
 
+Not only String but also various types are possible. Because DataContext is an object type.
 
 
 TBD....
