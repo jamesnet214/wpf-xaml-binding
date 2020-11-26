@@ -35,7 +35,11 @@ The value bound to `Text="{Binding}"` is passed directly from the nearest DataCo
 ### And, Another type
 Not only String but also various types are possible. Because DataContext is an object type.
 ```xaml
-<TextBlock Text="{Binding}" DataContext="7"/>
+<Window.Resource>
+    <sys:Int32 x:Key="YEAR">2020</sys:Int32>
+</Window.Resource>
+...
+<TextBlock Text="{Binding}" DataContext="{StaticResource YEAR"/>
 ```
 
 
