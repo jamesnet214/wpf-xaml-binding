@@ -38,7 +38,7 @@ When assigning a value to DataContext directly from Xaml, resource definitions a
 ```xaml
 xmlns:sys="clr-namespace:System;assembly=mscorlib"
 ```
-#### Step 2, create `YEAR` resource key in xaml
+##### Step 2, create `YEAR` resource key in xaml
 ```xaml
 <Window.Resources>
     <sys:Int32 x:Key="YEAR">2020</sys:Int32>
