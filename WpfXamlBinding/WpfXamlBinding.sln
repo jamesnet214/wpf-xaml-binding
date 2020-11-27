@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NcoreExam.Resources", "Ncor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Design", "01. Design", "{E00C4005-4F94-4C8D-9BEE-45765A09FE8E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00. Common", "00. Common", "{2544A27C-07EC-45D9-B171-9406332E01AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NcoreExam.Common", "NcoreExam.Common\NcoreExam.Common.csproj", "{6372A507-5AE3-47D9-847C-385298737771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,10 @@ Global
 		{6DA68A41-DD14-4A4C-AF59-1C7C2D781248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DA68A41-DD14-4A4C-AF59-1C7C2D781248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DA68A41-DD14-4A4C-AF59-1C7C2D781248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6372A507-5AE3-47D9-847C-385298737771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6372A507-5AE3-47D9-847C-385298737771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6372A507-5AE3-47D9-847C-385298737771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6372A507-5AE3-47D9-847C-385298737771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +49,7 @@ Global
 		{CE84031D-F21E-4AF2-8080-5D6EB88B2CEE} = {46C61EE8-12FA-40F9-8C51-97FA3BBCE641}
 		{6AD9648C-AA4E-4BC0-8ABB-C40C04284146} = {ABF2922F-1109-4325-89EA-85D9A3B085F4}
 		{6DA68A41-DD14-4A4C-AF59-1C7C2D781248} = {E00C4005-4F94-4C8D-9BEE-45765A09FE8E}
+		{6372A507-5AE3-47D9-847C-385298737771} = {2544A27C-07EC-45D9-B171-9406332E01AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30F8032F-F847-46F7-B29D-756019F3D023}

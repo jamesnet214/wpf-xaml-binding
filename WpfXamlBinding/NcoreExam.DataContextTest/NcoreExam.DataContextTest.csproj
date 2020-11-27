@@ -48,7 +48,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClassViewer.cs" />
     <Compile Include="Data\DataGenerator.cs" />
+    <Compile Include="Models\BaseClassModel.cs" />
     <Compile Include="Models\ControlTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -63,6 +68,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\ControlExplorerViewModel.cs" />
     <Compile Include="Views\ControlTypeView.xaml.cs">
       <DependentUpon>ControlTypeView.xaml</DependentUpon>
     </Compile>
@@ -76,10 +82,28 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ControlExplorerStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ControlTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NcoreExam.Common\NcoreExam.Common.csproj">
+      <Project>{6372A507-5AE3-47D9-847C-385298737771}</Project>
+      <Name>NcoreExam.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NcoreExam.Resources\NcoreExam.Resources.csproj">
+      <Project>{6da68a41-dd14-4a4c-af59-1c7c2d781248}</Project>
+      <Name>NcoreExam.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

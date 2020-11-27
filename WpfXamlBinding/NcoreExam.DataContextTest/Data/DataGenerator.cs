@@ -8,7 +8,7 @@ namespace NcoreExam.DataContextTest.Data
 {
     internal class DataGenerator
     {
-        internal static IEnumerable GetControlList()
+        internal static List<ControlTypeModel> GetControlList()
         {
             List<ControlTypeModel> controls = new List<ControlTypeModel>();
             controls.Add(new ControlTypeModel(typeof(Button)));
