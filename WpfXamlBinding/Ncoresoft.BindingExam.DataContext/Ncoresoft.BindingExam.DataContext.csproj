@@ -4,17 +4,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6AD9648C-AA4E-4BC0-8ABB-C40C04284146}</ProjectGuid>
-    <OutputType>library</OutputType>
-    <RootNamespace>NcoreExam.DataContextTest</RootNamespace>
-    <AssemblyName>NcoreExam.DataContextTest</AssemblyName>
+    <ProjectGuid>{F64BC494-F727-4FA7-8ACF-BE117BEE7BA5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Ncoresoft.BindingExam.DataContext</RootNamespace>
+    <AssemblyName>Ncoresoft.BindingExam.DataContext</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,12 +26,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,15 +54,19 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controls\ClassViewer.cs" />
-    <Compile Include="Converters\TreeViewItemLeftMarginConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converters\LeftMarginCalculatingConverter.cs" />
     <Compile Include="Data\DataGenerator.cs" />
-    <Compile Include="Extensions\TreeViewItemExtensions.cs" />
-    <Compile Include="Models\BaseClassModel.cs" />
-    <Compile Include="Models\ControlTypeModel.cs" />
+    <Compile Include="Models\WPFControlModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -70,10 +80,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewModels\ControlExplorerViewModel.cs" />
-    <Compile Include="Views\ControlTypeView.xaml.cs">
-      <DependentUpon>ControlTypeView.xaml</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,28 +90,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Resources\ControlExplorerStyles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ControlTypeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NcoreExam.Common\NcoreExam.Common.csproj">
-      <Project>{6372A507-5AE3-47D9-847C-385298737771}</Project>
-      <Name>NcoreExam.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NcoreExam.Resources\NcoreExam.Resources.csproj">
-      <Project>{6da68a41-dd14-4a4c-af59-1c7c2d781248}</Project>
-      <Name>NcoreExam.Resources</Name>
-    </ProjectReference>
+    <Folder Include="Extensions\" />
+    <Folder Include="Resources\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

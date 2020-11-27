@@ -18,7 +18,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Control Style="{StaticResource CTRL.CONTROL.DETAIL}"/>
-            <TreeView Grid.Row="1" Style="{StaticResource TRV}"/>
+            <TreeView Grid.Row="1" ItemsSource="{Binding BaseTypes}" Style="{StaticResource MainTreeViewStyle}"/>
         </Grid>
     </Grid>
 </UserControl>
