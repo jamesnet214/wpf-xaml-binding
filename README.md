@@ -67,6 +67,8 @@ Why? Because we're going to bind an object.
 ### And, Another type
 Not only String but also various types are possible. Because DataContext is an object type.
 
+### Finaly, DataContext
+> In using Binding at WPF, most developers are not fully aware of the existence, function and importance of DataContext. It may mean that Binding is being connected by luck.
 
 ## Binding
 
