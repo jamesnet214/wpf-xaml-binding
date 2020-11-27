@@ -24,41 +24,40 @@ namespace NcoreExam.DataContextTest.ViewModels
             get { return _controlType; }
             set { _controlType = value; OnPropertyChanged(); }
         }
-        public List<BaseClassModel> _baseTypes;
 
+        private List<BaseClassModel> _baseTypes;
         public List<BaseClassModel> BaseTypes
         {
             get { return _baseTypes; }
             set { _baseTypes = value; OnPropertyChanged(); }
         }
 
-
         public ControlExplorerViewModel()
         {
             ControlType = DataGenerator.GetControlList();
+        }
+
+        private BaseClassModel CreateClassModel(Type type)
+        {
+            BaseClassModel item = new BaseClassModel { Type = type, BaseTypes = new List<BaseClassModel>() };
+
+            if (type.BaseType != null)
+            {
+                item.BaseTypes.Add(CreateClassModel(type.BaseType));
+            }
+
+            return item;
         }
 
         private void TypeChanged(ControlTypeModel value)
         {
             List<BaseClassModel> source = new List<BaseClassModel>();
 
-            BaseClassModel createClassModel(Type type)
+            BaseClassModel selectedItem = CreateClassModel(value.ControlType);
+
+            if (selectedItem != null)
             {
-                BaseClassModel item = new BaseClassModel { Type = type, BaseTypes = new List<BaseClassModel>() };                
-
-                if (type.BaseType != null)
-                {
-                    item.BaseTypes.Add(createClassModel(type.BaseType));
-                }
-
-                return item;
-            }
-
-            var item1 = createClassModel(value.ControlType);
-
-            if (item1 != null)
-            {
-                source.Add(item1);
+                source.Add(selectedItem);
             }
 
             BaseTypes = source;

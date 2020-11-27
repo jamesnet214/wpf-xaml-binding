@@ -9,7 +9,7 @@ namespace NcoreExam.DataContextTest.Models
 {
     public class BaseClassModel : ObservableObject
     {
-        public List<BaseClassModel> _baseTypes;
+        private List<BaseClassModel> _baseTypes;
         public List<BaseClassModel> BaseTypes
         {
             get { return _baseTypes; }

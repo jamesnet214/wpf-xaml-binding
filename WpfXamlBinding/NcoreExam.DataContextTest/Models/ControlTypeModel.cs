@@ -14,6 +14,7 @@ namespace NcoreExam.DataContextTest.Models
         }
 
         public string Name { get { return ControlType.Name; } }
+
         public Type ControlType { get; set; }
     }
 }
