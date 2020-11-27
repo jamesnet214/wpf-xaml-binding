@@ -68,7 +68,9 @@ Why? Because we're going to bind an object.
 Not only String but also various types are possible. Because DataContext is an object type.
 
 ### Finaly, DataContext
-> In using Binding at WPF, most developers are not fully aware of the existence, function and importance of DataContext. It may mean that Binding is being connected by luck.
+> In using Binding at WPF, most developers are not fully aware of the existence, function and importance of DataContext. It may mean that Binding is being connected by luck.   
+
+> Especially if you are responsible for or participating in a large WPF project, you need to be able to understand and understand the DataContex hierarchy of the application more clearly. In addition, introducing WPF's various popular MVVM Framework systems in the absence of this DataContext concept will create even greater limitations on functional implementation and freedom.
 
 ## Binding
 
