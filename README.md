@@ -35,11 +35,12 @@ The value bound to `Text="{Binding}"` is passed directly from the nearest DataCo
 #### Type integer
 When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integrer and Boolean because all strings are recognized as String.   
 ##### Step 1, using System `mscrolib` in Xaml
-because, simple type variable type is not supported by standard.
+Because, simple type variable type is not supported by standard.
 ```xaml
 xmlns:sys="clr-namespace:System;assembly=mscorlib"
 ```
 ##### Step 2, create `YEAR` resource key in xaml
+Declares the value of the type you want to create in the form of a StaticResource.
 ```xaml
 <Window.Resources>
     <sys:Int32 x:Key="YEAR">2020</sys:Int32>
