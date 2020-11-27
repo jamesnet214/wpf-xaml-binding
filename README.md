@@ -49,6 +49,7 @@ Declares the value of the type you want to create in the form of a StaticResourc
 ...
 <TextBlock Text="{Binding}" DataContext="{StaticResource YEAR"/>
 ```
+##### sample code [here.](https://github.com/ncoresoftsource/wpfxamlbinding)
 #### All type of value
 ```xaml
 <Window.Resources>
