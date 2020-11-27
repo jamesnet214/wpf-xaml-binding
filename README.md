@@ -39,6 +39,7 @@ Because, simple type variable type is not supported by standard.
 ```xaml
 xmlns:sys="clr-namespace:System;assembly=mscorlib"
 ```
+You can define it with any word, but mostly you use `sys` words.
 ##### Step 2, create `YEAR` resource key in xaml
 Declares the value of the type you want to create in the form of a StaticResource.
 ```xaml
