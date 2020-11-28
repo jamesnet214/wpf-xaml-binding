@@ -10,5 +10,10 @@ namespace Ncoresoft.BindingExam.DataContext.Models
     {
         public Type Control { get; set; }
         public List<WPFControlModel> Controls { get; set; }
+
+        public WPFControlModel(Type type)
+        {
+            Control = type;
+        }
     }
 }

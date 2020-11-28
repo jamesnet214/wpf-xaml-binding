@@ -107,6 +107,10 @@
       <Project>{6da68a41-dd14-4a4c-af59-1c7c2d781248}</Project>
       <Name>NcoreExam.Resources</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ncoresoft.BindingExam.DataContext\Ncoresoft.BindingExam.DataContext.csproj">
+      <Project>{f64bc494-f727-4fa7-8acf-be117bee7ba5}</Project>
+      <Name>Ncoresoft.BindingExam.DataContext</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

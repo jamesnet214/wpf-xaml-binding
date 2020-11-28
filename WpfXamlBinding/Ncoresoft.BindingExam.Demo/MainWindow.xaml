@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:test="clr-namespace:NcoreExam.DataContextTest.Views;assembly=NcoreExam.DataContextTest"
+        xmlns:test="clr-namespace:Ncoresoft.BindingExam.DataContext.Views;assembly=Ncoresoft.BindingExam.DataContext"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <test:ControlTypeView/>
+        <test:ControlView/>
     </Grid>
 </Window>

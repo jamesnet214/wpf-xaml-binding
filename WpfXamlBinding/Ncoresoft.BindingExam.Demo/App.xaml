@@ -6,7 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/NcoreExam.DataContextTest;component/Resources/ControlExplorerStyles.xaml"/>
+                <ResourceDictionary Source="/Ncoresoft.BindingExam.DataContext;component/Resources/ControlViewResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
