@@ -12,7 +12,7 @@
                 <views:ControlView/>
             </TabItem>
             <TabItem Header="Winform Controls">
-                
+                <views:WinformView/>
             </TabItem>
         </TabControl>
     </Grid>
