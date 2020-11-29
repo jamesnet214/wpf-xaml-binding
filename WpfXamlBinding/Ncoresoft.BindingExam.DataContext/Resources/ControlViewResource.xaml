@@ -26,38 +26,49 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <DataTemplate DataType="{x:Type refl:PropertyInfo}" x:Key="DATA.CONTROLVIEW.PROPERTY">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="type" Grid.Column="0" Text="{Binding PropertyType.Name}" Margin="0 0 4 0" Foreground="#AAAAAA"/>
+            <TextBlock x:Name="name" Grid.Column="1" Text="{Binding Name}" Foreground="#AAAAAA"/>
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Name}" Value="DataContext">
+                <Setter TargetName="type" Property="Foreground" Value="#004484"/>
+                <Setter TargetName="name" Property="Foreground" Value="#000000"/>
+                <Setter TargetName="name" Property="FontWeight" Value="Bold"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
 
-    
-    
+    <Style TargetType="{x:Type ListBoxItem}" x:Key="CTRL.LBXITEM.CONTROLVIEW.PROPERTIES">
+        <Setter Property="ContentTemplate" Value="{StaticResource DATA.CONTROLVIEW.PROPERTY}"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter ContentSource="Content"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#EEEEEE"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#EEEEEE"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
-    
     <Style TargetType="{x:Type ListBox}" x:Key="CTRL.LBX.CONTROLVIEW.PROPERTIES">
-        <Style.Resources>
-            <Style TargetType="{x:Type ListBoxItem}" x:Key="CTRL.LBXITEM.CONTROLVIEW.PROPERTIES">
-                <Style.Resources>
-                    <DataTemplate DataType="{x:Type refl:PropertyInfo}" x:Key="DATA.CONTROLVIEW.PROPERTY">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding PropertyType.Name}" Margin="0 0 4 0" Foreground="#999999"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Name}"/>
-                        </Grid>
-                    </DataTemplate>
-                </Style.Resources>
-                <Setter Property="ContentTemplate" Value="{StaticResource DATA.CONTROLVIEW.PROPERTY}"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                            <Border>
-                                <ContentPresenter ContentSource="Content"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Style.Resources>
         <Setter Property="Grid.Column" Value="2"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource CTRL.LBXITEM.CONTROLVIEW.PROPERTIES}"/>
         <Setter Property="ItemsSource" Value="{Binding Properties}"/>
@@ -100,30 +111,29 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TreeViewItem}" x:Key="CTRL.TRVITEM.CONTROLVIEW">
-        <Style.Resources>
-            <DataTemplate DataType="{x:Type model:WPFControlModel}" x:Key="DATA.CONTROLVIEW.BASETYPE">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <cvt:SliceParentNamespaceConverter x:Key="SliceNameConverter"/>
-                    </StackPanel.Resources>
+    <DataTemplate DataType="{x:Type model:WPFControlModel}" x:Key="DATA.CONTROLVIEW.BASETYPE">
+        <StackPanel>
+            <StackPanel.Resources>
+                <cvt:SliceParentNamespaceConverter x:Key="SliceNameConverter"/>
+            </StackPanel.Resources>
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock x:Name="point" Text="★" Margin="0 0 0 0" Visibility="Collapsed"/>
-                        <TextBlock x:Name="name" Text="{Binding Control.Name}" Foreground="#999999"/>
-                    </StackPanel>
-                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Control.FullName, StringFormat={}({0}), Converter={StaticResource SliceNameConverter}}" 
-                               Foreground="#BBBBBB" FontSize="11"/>
-                </StackPanel>
-                <DataTemplate.Triggers>
-                    <DataTrigger Binding="{Binding Control.Name}" Value="FrameworkElement">
-                        <Setter TargetName="point" Property="Visibility" Value="Visible"/>
-                        <Setter TargetName="name" Property="Foreground" Value="#000000"/>
-                        <Setter TargetName="name" Property="FontWeight" Value="Bold"/>
-                    </DataTrigger>
-                </DataTemplate.Triggers>
-            </DataTemplate>
-        </Style.Resources>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock x:Name="point" Text="★" Margin="0 0 0 0" Visibility="Collapsed"/>
+                <TextBlock x:Name="name" Text="{Binding Control.Name}" Foreground="#999999"/>
+            </StackPanel>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Control.FullName, StringFormat={}({0}), Converter={StaticResource SliceNameConverter}}" 
+                       Foreground="#BBBBBB" FontSize="11"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Control.Name}" Value="FrameworkElement">
+                <Setter TargetName="point" Property="Visibility" Value="Visible"/>
+                <Setter TargetName="name" Property="Foreground" Value="#000000"/>
+                <Setter TargetName="name" Property="FontWeight" Value="Bold"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    
+    <Style TargetType="{x:Type TreeViewItem}" x:Key="CTRL.TRVITEM.CONTROLVIEW">
         <Setter Property="ItemsSource" Value="{Binding Controls}"/>
         <Setter Property="HeaderTemplate" Value="{StaticResource DATA.CONTROLVIEW.BASETYPE}"/>
         <Setter Property="IsExpanded" Value="True"/>

@@ -56,16 +56,10 @@ namespace Ncoresoft.BindingExam.DataContext.ViewModels
 
         public ControlViewModel()
         {
-            ControlSource = DataGenerator.GetControlList();
             SelectedCommand = new RelayCommand<WPFControlModel>(ExecSelected);
-        }
-        #endregion
 
-        #region ExecSelected
-
-        private void ExecSelected(WPFControlModel item)
-        {
-            Properties = item.Control.GetProperties().Where(x=>x.DeclaringType.FullName == item.Control.FullName).OrderBy(x=>x.Name).ToList();
+            ControlSource = DataGenerator.GetControlList();
+            CurrentControl = ControlSource.First();
         }
         #endregion
 
@@ -95,6 +89,14 @@ namespace Ncoresoft.BindingExam.DataContext.ViewModels
             }
 
             BaseControls = source;
+        }
+        #endregion
+
+        #region ExecSelected
+
+        private void ExecSelected(WPFControlModel item)
+        {
+            Properties = item.Control.GetProperties().Where(x => x.DeclaringType.FullName == item.Control.FullName).OrderBy(x => x.Name).ToList();
         }
         #endregion
     }

@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:Ncoresoft.BindingExam.DataContext.ViewModels"
              xmlns:ctrl="clr-namespace:Ncoresoft.BindingExam.DataContext.Controls"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignData Source=vm:ControlViewModel, IsDesignTimeCreatable=True}">
+             d:DataContext="{d:DesignInstance vm:ControlViewModel, IsDesignTimeCreatable=True}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
