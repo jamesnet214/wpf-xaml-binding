@@ -13,6 +13,8 @@ namespace Ncoresoft.BindingExam.DataContext.ViewModels
 {
     public class ControlViewModel : ObservableObject
     {
+        #region ControlSource
+
         private List<WPFControlModel> _controlSource;
         public List<WPFControlModel> ControlSource
         {
@@ -26,6 +28,9 @@ namespace Ncoresoft.BindingExam.DataContext.ViewModels
             get { return _currentControl; }
             set { _currentControl = value; OnPropertyChanged(); ControlChanged(value); }
         }
+        #endregion
+
+        #region BaseControls
 
         private List<WPFControlModel> _baseControls;
         public List<WPFControlModel> BaseControls
@@ -33,27 +38,38 @@ namespace Ncoresoft.BindingExam.DataContext.ViewModels
             get { return _baseControls; }
             set { _baseControls = value; OnPropertyChanged(); }
         }
+        #endregion
 
-        public ICommand SelectedCommand { get; set; }
+        #region Properties
+
         private List<PropertyInfo> _properties;
         public List<PropertyInfo> Properties
         {
             get { return _properties; }
             set { _properties = value; OnPropertyChanged(); }
         }
+        #endregion
+
+        public ICommand SelectedCommand { get; set; }
+
+        #region Constructor
 
         public ControlViewModel()
         {
             ControlSource = DataGenerator.GetControlList();
             SelectedCommand = new RelayCommand<WPFControlModel>(ExecSelected);
         }
+        #endregion
 
         #region ExecSelected
+
         private void ExecSelected(WPFControlModel item)
         {
             Properties = item.Control.GetProperties().Where(x=>x.DeclaringType.FullName == item.Control.FullName).OrderBy(x=>x.Name).ToList();
         }
         #endregion
+
+        #region ControlChanged
 
         private WPFControlModel CreateClassModel(Type type)
         {
@@ -80,5 +96,6 @@ namespace Ncoresoft.BindingExam.DataContext.ViewModels
 
             BaseControls = source;
         }
+        #endregion
     }
 }

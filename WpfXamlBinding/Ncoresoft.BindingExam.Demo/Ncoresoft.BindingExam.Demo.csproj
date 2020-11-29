@@ -99,10 +99,6 @@
       <Project>{6372a507-5ae3-47d9-847c-385298737771}</Project>
       <Name>NcoreExam.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NcoreExam.DataContextTest\NcoreExam.DataContextTest.csproj">
-      <Project>{6ad9648c-aa4e-4bc0-8abb-c40c04284146}</Project>
-      <Name>NcoreExam.DataContextTest</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NcoreExam.Resources\NcoreExam.Resources.csproj">
       <Project>{6da68a41-dd14-4a4c-af59-1c7c2d781248}</Project>
       <Name>NcoreExam.Resources</Name>
