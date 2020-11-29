@@ -20,6 +20,7 @@ namespace Ncoresoft.BindingExam.Demo
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();

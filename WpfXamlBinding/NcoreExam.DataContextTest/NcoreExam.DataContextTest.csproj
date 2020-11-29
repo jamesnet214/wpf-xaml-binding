@@ -51,7 +51,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ClassViewer.cs" />
+    <Compile Include="Controls\ControlTreeView.cs" />
     <Compile Include="Converters\TreeViewItemLeftMarginConverter.cs" />
     <Compile Include="Data\DataGenerator.cs" />
     <Compile Include="Extensions\TreeViewItemExtensions.cs" />

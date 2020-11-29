@@ -4,9 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
              xmlns:vm="clr-namespace:Ncoresoft.BindingExam.DataContext.ViewModels"
+             xmlns:ctrl="clr-namespace:Ncoresoft.BindingExam.DataContext.Controls"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignData Source=vm:ControlViewModel, IsDesignTimeCreatable=True}">
     <Grid>
-        <ListBox Style="{StaticResource  CTRL.LBX.CONTROLVIEW}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListBox Style="{StaticResource CTRL.LBX.CONTROLVIEW}"/>
+        <ctrl:ControlTreeView Style="{StaticResource CTRL.TRV.CONTROLVIEW}"/>
+        <ListBox Style="{StaticResource CTRL.LBX.CONTROLVIEW.PROPERTIES}"/>
     </Grid>
 </UserControl>
