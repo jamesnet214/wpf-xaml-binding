@@ -28,6 +28,8 @@ namespace Ncoresoft.BindingExam.DataContext.Data
             controls.Add(new WPFControlModel(typeof(Viewbox)));
             controls.Add(new WPFControlModel(typeof(Grid)));
             controls.Add(new WPFControlModel(typeof(Canvas)));
+            controls.Add(new WPFControlModel(typeof(Calendar)));
+            controls.Add(new WPFControlModel(typeof(DateTime)));
 
             return controls;
         }
