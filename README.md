@@ -117,6 +117,23 @@ In addition to the properties of the controls found, the properties within the D
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Email}"/>
 ```
 
+### TemplatedParent
+This is a method that can be used within ControlTemplate, and you can import the control that is the owner of the ControlTemplate.
+```xaml
+<Style TargetType="Button">
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="Button">
+                <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+```
+You can access to all Property and DataCotntext.
+```xaml
+<TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
+```
+
 ### Static Property Binding
 You can access binding property value directly.   
 First, declare `static` property.
