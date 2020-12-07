@@ -160,6 +160,7 @@ Third, just binding property.
 Or, you can set Resource key like using `Converter`.
 ```xaml
 <Window.Resource>
+    <cvt:VisibilityToBooleanConverter x:Key="VisibilityToBooleanConverter"/>
     <exam:ExamClass x:Key="ExamClass">
 </Window.Resource>
 ...
