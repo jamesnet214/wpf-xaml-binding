@@ -76,95 +76,97 @@ Not only String but also various types are possible. Because DataContext is an o
 
 ## Binding
 
-### DataContext Binding
-string property
-```xaml
-<TextBox Text="{Binding Keywords}"/>
-```
+- ### DataContext Binding
+  string property
+  ```xaml
+  <TextBox Text="{Binding Keywords}"/>
+  ```
 
-### Binding Element
-```xaml
-<CheckBox x:Name="ckUseEmail"/>
-<TextBlock Text="{Binding ElementName=ckUseEmail, Path=IsChecked}"/>
-```
-### MultiBinding
-```xaml
-<TextBlock Margin="5,2" Text="This dissappears as the control gets focus...">
-    <TextBlock.Visibility>
-        <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
-            <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
-            <Binding ElementName="txtUserEntry2" Path="IsFocused" />
-        </MultiBinding>
-    </TextBlock.Visibility>
-</TextBlock>
-```
-### Self Property Binding
-```xaml
-<TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
-```
-Truly, same with this code.
-```xaml
-<TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
-```
-Yes. You no longer have to declare `x:Name` to bind your own property.
-### Binding (Find Parent)
-Imports based on the parent control closest to it.
-```xaml
-<TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
-```
-In addition to the properties of the controls found, the properties within the DataContext object can be used if it exists.
-```xaml
-<TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Email}"/>
-```
+- ### Binding Element
+  ```xaml
+  <CheckBox x:Name="ckUseEmail"/>
+  <TextBlock Text="{Binding ElementName=ckUseEmail, Path=IsChecked}"/>
+  ```
+- ### MultiBinding
+  ```xaml
+  <TextBlock Margin="5,2" Text="This dissappears as the control gets focus...">
+      <TextBlock.Visibility>
+          <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+              <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
+              <Binding ElementName="txtUserEntry2" Path="IsFocused" />
+          </MultiBinding>
+      </TextBlock.Visibility>
+  </TextBlock>
+  ```
+  
+  - ### Self Property Binding
+  ```xaml
+  <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
+  ```
+  
+  Truly, same with this code.
+  ```xaml
+  <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
+  ```
+  Yes. You no longer have to declare `x:Name` to bind your own property.
+- ### Binding (Find Parent)
+  Imports based on the parent control closest to it.
+  ```xaml
+  <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
+  ```
+  In addition to the properties of the controls found, the properties within the DataContext object can be used if it exists.
+  ```xaml
+  <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Email}"/>
+  ```
 
-### TemplatedParent
-This is a method that can be used within ControlTemplate, and you can import the control that is the owner of the ControlTemplate.
-```xaml
-<Style TargetType="Button">
-    <Setter Property="Template">
-        <Setter.Value>
-            <ControlTemplate TargetType="Button">
-                <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
-            </ControlTemplate>
-        </Setter.Value>
-    </Setter>
-```
-You can access to all Property and DataCotntext.
-```xaml
-<TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
-```
+- ### TemplatedParent
+  This is a method that can be used within ControlTemplate, and you can import the control that is the owner of the ControlTemplate.
+  ```xaml
+  <Style TargetType="Button">
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="Button">
+                  <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+  ```
+  You can access to all Property and DataCotntext.
+  ```xaml
+  <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
+  ```
 
-### Static Property Binding
-You can access binding property value directly.   
-First, declare `static` property.
-```csharp
-namespace Exam
-{
-    public class ExamClass
-    {
-        public static string ExamText { get; set; }
-    }
-} 
-```
+- ### Static Property Binding
+  You can access binding property value directly.   
+  First, declare `static` property.
+  ```csharp
+  namespace Exam
+  {
+      public class ExamClass
+      {
+          public static string ExamText { get; set; }
+      }
+  } 
+  ```
 
-Second, using static class in XAML.
-```xaml
-<Window ... xmlns:exam="clr-namespace:Exam">
-```
+  Second, using static class in XAML.
+  ```xaml
+  <Window ... xmlns:exam="clr-namespace:Exam">
+  ```
 
-Third, just binding property.
-```xaml
-<TextBlock Text="{Binding exam:ExamClass.ExamText}"/>
-```
+  Third, just binding property.
+  ```xaml
+  <TextBlock Text="{Binding exam:ExamClass.ExamText}"/>
+  ```
 
-Or, you can set Resource key like using `Converter`.
-```xaml
-<Window.Resource>
-    <cvt:VisibilityToBooleanConverter x:Key="VisibilityToBooleanConverter"/>
-    <exam:ExamClass x:Key="ExamClass">
-</Window.Resource>
-...
+  Or, you can set Resource key like using `Converter`.
+  ```xaml
+  <Window.Resource>
+      <cvt:VisibilityToBooleanConverter x:Key="VisibilityToBooleanConverter"/>
+      <exam:ExamClass x:Key="ExamClass">
+  </Window.Resource>
+  ...
 
-<TextBlock Text="{Binding Source={StaticResource ExamClass}, Path=ExamText}"/>
-```
-> I have never used the Static Property under normal circumstances. This is because data that deviates from its own DataContext can disrupt the flow of whole WPF applications and impair readability significantly. However, this method is actively used in the development stage to implement fast testing and functions, as well as in the DataContext (or ViewModel).
+  <TextBlock Text="{Binding Source={StaticResource ExamClass}, Path=ExamText}"/>
+  ```
+  > I have never used the Static Property under normal circumstances. This is because data that deviates from its own DataContext can disrupt the flow of whole WPF applications and impair readability significantly. However, this method is actively used in the development stage to implement fast testing and functions, as well as in the DataContext (or ViewModel).
