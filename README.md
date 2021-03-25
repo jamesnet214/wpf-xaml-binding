@@ -41,37 +41,37 @@ Therefore, the Binding result value of `Text` is 'James'.
 When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integer and Boolean.
 Because all strings are recognized as String.   
 
-#### 1. Using System `mscrolib` in Xaml
-> Simple type variable type is not supported by standard.  
-> You can define it with any word, but mostly use `sys` words.  
-```xaml
-xmlns:sys="clr-namespace:System;assembly=mscorlib"
-```
+    #### 1. Using System `mscrolib` in Xaml
+    > Simple type variable type is not supported by standard.  
+    > You can define it with any word, but mostly use `sys` words.  
+    ```xaml
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    ```
 
-#### 2. Create `YEAR` resource key in xaml
-> Declare the value of the type you want to create in the form of a StaticResource.
-```xaml
-<Window.Resources>
-    <sys:Int32 x:Key="YEAR">2020</sys:Int32>
-</Window.Resources>
-...
-<TextBlock Text="{Binding}" DataContext="{StaticResource YEAR"/>
-```
+    #### 2. Create `YEAR` resource key in xaml
+    > Declare the value of the type you want to create in the form of a StaticResource.
+    ```xaml
+    <Window.Resources>
+        <sys:Int32 x:Key="YEAR">2020</sys:Int32>
+    </Window.Resources>
+    ...
+    <TextBlock Text="{Binding}" DataContext="{StaticResource YEAR"/>
+    ```
 
 - __All type of value__  
 There are very few cases where Value Type is binding directly into DataContext.   
 Because we're going to bind an object.
-```xaml
-<Window.Resources>
-    <sys:Boolean x:Key="IsEnabled">true</sys:Boolean>
-    <sys:double x:Key="Price">7.77</sys:double>
-</Window.Resources>
-...
-<StackPanel>
-    <TextBlock Text="{Binding}" DataContext="{StaticResource IsEnabled}"/>
-    <TextBlock Text="{Binding}" DataContext="{StaticResource Price}"/>
-</StackPanel>
-```
+    ```xaml
+    <Window.Resources>
+        <sys:Boolean x:Key="IsEnabled">true</sys:Boolean>
+        <sys:double x:Key="Price">7.77</sys:double>
+    </Window.Resources>
+    ...
+    <StackPanel>
+        <TextBlock Text="{Binding}" DataContext="{StaticResource IsEnabled}"/>
+        <TextBlock Text="{Binding}" DataContext="{StaticResource Price}"/>
+    </StackPanel>
+    ```
 
 - __Another type__  
 Not only String but also various types are possible. Because DataContext is an object type.
