@@ -1,6 +1,4 @@
 # wpf-xaml-binding
-> DevNcore [here.](https://github.com/devncore/devncore)   
-We hope you also refer to this article for better understanding. [here.](https://github.com/ncoresoftsource/trigger)  
 
 ## Overview
 - [DataContext](#datacontext)
