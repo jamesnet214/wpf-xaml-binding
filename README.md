@@ -1,17 +1,22 @@
-# wpfxamlbinding
-> ncoresoftgit [here.](https://github.com/ncoresoftsource/ncoresoftgit)   
-We hope you also refer to this article for better understanding. [here.](https://github.com/ncoresoftsource/trigger)
-## 1. Overview
-- DataContext
-- Binding
-- Binding Element
-- MultiBinding
-- Self Property Binding
-- TemplatedParent Binding
-- Static Property Binding
+# wpf-xaml-binding
+> DevNcore [here.](https://github.com/devncore/devncore)   
+We hope you also refer to this article for better understanding. [here.](https://github.com/ncoresoftsource/trigger)  
 
-## 2. DataContext
-DataContext is the DependencyProperty Property included in the FrameworkElement. `PresentationFramework.dll`
+## Overview
+- [DataContext](#datacontext)
+- [Binding](#binding)
+- [Binding Element](#binding-element)
+- [MultiBinding](#multibinding)
+- [Self Property Binding](#self-property-binding)
+- [TemplatedParent Binding](#templated-binding)
+- [Static Property Binding](#static-property-binding)
+
+<br />
+
+## DataContext
+DataContext is the DependencyProperty included in the FrameworkElement.  
+`PresentationFramework.dll`
+
 ```csharp
 namespace System.Windows
 {
@@ -22,26 +27,34 @@ namespace System.Windows
     }
 }
 ```
-And, all ui controls in wpf inherit the FrameworkElement class.   
-> At this point in learning Binding or DataContext, you don't have to study FrameworkElement in greater depth. However, this is to briefly mention the fact that the closest object that can encompass all UI controls is the FrameworkElement.   
 
-### DataContext is always the reference point for Binding.
+And, all UI Controls in WPF inherit the `FrameworkElement` class.   
+> At this point in learning Binding or DataContext, you don't have to study FrameworkElement in greater depth.  
+> However, this is to briefly mention the fact that the closest object that can encompass all UI Controls is the FrameworkElement.   
+<br />
+
+### _DataContext is always the reference point for Binding._ 
 Binding can directly recall values for the DataContext type format starting with the nearest DataContext.
 ```xaml
 <TextBlock Text="{Binding}" DataContext="James"/>
 ```
-The value bound to `Text="{Binding}"` is passed directly from the nearest DataContext, TextBlock. Therefore, the Binding result value of Text is 'James'.      
+The value bound to `Text="{Binding}"` is passed directly from the nearest DataContext, `TextBlock`.  
+Therefore, the Binding result value of `Text` is 'James'.      
+<br />
 
-#### Type integer
-When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integer and Boolean. Because all strings are recognized as String.   
-#### Step 1, using System `mscrolib` in Xaml
-Because, simple type variable type is not supported by standard.
+- __Type integer__  
+When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integer and Boolean.
+Because all strings are recognized as String.   
+
+#### 1. Using System `mscrolib` in Xaml
+> Simple type variable type is not supported by standard.  
+> You can define it with any word, but mostly use `sys` words.  
 ```xaml
 xmlns:sys="clr-namespace:System;assembly=mscorlib"
 ```
-> You can define it with any word, but mostly use `sys` words.
-#### Step 2, create `YEAR` resource key in xaml
-Declare the value of the type you want to create in the form of a StaticResource.
+
+#### 2. Create `YEAR` resource key in xaml
+> Declare the value of the type you want to create in the form of a StaticResource.
 ```xaml
 <Window.Resources>
     <sys:Int32 x:Key="YEAR">2020</sys:Int32>
@@ -50,7 +63,9 @@ Declare the value of the type you want to create in the form of a StaticResource
 <TextBlock Text="{Binding}" DataContext="{StaticResource YEAR"/>
 ```
 
-#### All type of value
+- __All type of value__  
+There are very few cases where Value Type is binding directly into DataContext.   
+Because we're going to bind an object.
 ```xaml
 <Window.Resources>
     <sys:Boolean x:Key="IsEnabled">true</sys:Boolean>
@@ -62,18 +77,18 @@ Declare the value of the type you want to create in the form of a StaticResource
     <TextBlock Text="{Binding}" DataContext="{StaticResource Price}"/>
 </StackPanel>
 ```
-> However, there are very few cases where Value Type is binding directly into DataContext.   
-Because we're going to bind an object.
 
-### And, another type
+- __Another type__  
 Not only String but also various types are possible. Because DataContext is an object type.
+<br />
 
-### Finally
-#### DataContext, ****
-> In using Binding at WPF, most developers are not fully aware of the existence, function and importance of DataContext. It may mean that Binding is being connected by luck.   
+### Finally... 
+In using Binding at WPF, most developers are not fully aware of the existence, function and importance of DataContext.  
+It may mean that Binding is being connected by luck.   
+> __Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.__
+<br />
 
-> Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.
-
+* * *  
 ## Binding
 
 - ### DataContext Binding
