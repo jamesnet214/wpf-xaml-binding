@@ -86,7 +86,7 @@ It may mean that Binding is being connected by luck.
 * * *  
 ## Binding
 - [DataContext Binding](#datacontext-binding)
-- [Binding Element](#binding-element)
+- [Element Binding](#element-binding)
 - [MultiBinding](#multibinding)
 - [Self Property Binding](#self-property-binding)
 - [Find Ancestor Binding](#find-ancestor-binding)
@@ -101,7 +101,7 @@ It may mean that Binding is being connected by luck.
 ```
 <br />
 
-### Binding Element
+### Element Binding
 ```xaml
 <CheckBox x:Name="ckUseEmail"/>
 <TextBlock Text="{Binding ElementName=ckUseEmail, Path=IsChecked}"/>
@@ -122,14 +122,15 @@ It may mean that Binding is being connected by luck.
 <br />
  
 ### Self Property Binding
-```xaml
-<TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
-```
 
-Truly, same with below code.  
-You no longer have to declare `x:Name` to bind your own property.  
 ```xaml
 <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
+```
+If you have to bind your own property, you can use `Self Property Binding`, instead of using `Element Binding`.  
+You no longer have to declare `x:Name` to bind your own property.  
+
+```xaml
+<TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
 ```
 <br />
  
