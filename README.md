@@ -3,6 +3,7 @@
 ## Overview
 - [DataContext](#datacontext)
 - [Binding](#binding)
+- [Bad Binding & Good Binding](#bad-binding&good-binding)
 
 <br />
 
@@ -199,4 +200,63 @@ _Or, you can set Resource key like using `Converter`._
 <TextBlock Text="{Binding Source={StaticResource ExamClass}, Path=ExamText}"/>
 ```
 
-> I have never used the Static Property under normal circumstances. This is because data that deviates from its own DataContext can disrupt the flow of whole WPF applications and impair readability significantly. However, this method is actively used in the development stage to implement fast testing and functions, as well as in the DataContext (or ViewModel).
+> I have never used the Static Property under normal circumstances. This is because data that deviates from its own DataContext can disrupt the flow of whole WPF applications and impair readability significantly. However, this method is actively used in the development stage to implement fast testing and functions, as well as in the DataContext (or ViewModel).  
+<br />
+
+* * *  
+## Bad Binding & Good Binding 
+
+### :heavy_check_mark: If the property you want to bind is included in Datacontext, <br /> &nbsp; &nbsp; &nbsp; you don't have to use ElementBinding.
+&nbsp; &nbsp; &nbsp; _Using ElementBinding through connected control is not a functional problem, <ins>but it breaks the fundamental pattern of Binding</ins>._   
+
+#### :slightly_frowning_face: Bad Binding 
+```xaml
+<TextBox x:Name="text" Text="{Binding UserName}"/>
+...
+<TextBlock Text="{Binding ElementName=text, Path=Text}"/>
+```
+   
+#### :grinning: Good Binding
+```xaml
+<TextBox Text="{Binding UserName}"/>
+...
+<TextBlock Text="{Binding UserName}"/>
+```
+<br />
+
+### :heavy_check_mark: Do not use ElementBinding when using property belonging to higher layers control.   
+
+#### :slightly_frowning_face: Bad Binding 
+```xaml
+<Window x:Name="win">
+  <TextBlock Text="{Binding ElementName=win, Path=DataContext.UserName}"/>
+  ...
+```
+    
+#### :grinning: Good Binding
+```xaml
+<Window>
+  <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.UserName}"/>
+  ...
+```      
+
+#### :laughing: Great!
+```xaml
+<Window>
+  <TextBlock DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext}" 
+             Text="{Binding UserName}"/>
+  ...
+```
+<br />
+
+### :heavy_check_mark: Do not use ElementBinding when using your own properties.   
+
+#### :slightly_frowning_face: Bad Binding 
+```xaml
+<TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Foreground}"/>
+```
+
+#### :grinning: Good Binding
+```xaml
+<TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
+```
