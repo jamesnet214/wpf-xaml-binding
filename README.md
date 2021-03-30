@@ -8,7 +8,7 @@
 <br />
 
 ## DataContext
-DataContext is the DependencyProperty included in the FrameworkElement.  
+__DataContext is the DependencyProperty included in the FrameworkElement.__  
 `PresentationFramework.dll`
 
 ```csharp
@@ -89,7 +89,7 @@ It may mean that Binding is being connected by luck.
 - [MultiBinding](#multibinding)
 - [Self Property Binding](#self-property-binding)
 - [Find Ancestor Binding](#find-ancestor-binding)
-- [TemplatedParent Binding](#templated-binding)
+- [TemplatedParent Binding](#templatedparent-binding)
 - [Static Property Binding](#static-property-binding)  
 <br />
 
@@ -102,14 +102,14 @@ It may mean that Binding is being connected by luck.
 
 ### Element Binding
 ```xaml
-<CheckBox x:Name="ckUseEmail"/>
-<TextBlock Text="{Binding ElementName=ckUseEmail, Path=IsChecked}"/>
+<CheckBox x:Name="usingEmail"/>
+<TextBlock Text="{Binding ElementName=usingEmail, Path=IsChecked}"/>
 ```
 <br />
 
 ### MultiBinding
 ```xaml
-<TextBlock Margin="5,2" Text="This dissappears as the control gets focus...">
+<TextBlock Margin="5,2" Text="This disappears as the control gets focus...">
   <TextBlock.Visibility>
       <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
           <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
@@ -153,7 +153,7 @@ This is a method that can be used within `ControlTemplate`, and you can import t
   <Setter Property="Template">
       <Setter.Value>
           <ControlTemplate TargetType="Button">
-              <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
+              <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
           </ControlTemplate>
       </Setter.Value>
   </Setter>
