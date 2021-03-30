@@ -3,7 +3,7 @@
 ## Overview
 - [DataContext](#datacontext)
 - [Binding](#binding)
-- [Bad Binding & Good Binding](#bad-binding&good-binding)
+- [Bad Binding & Good Binding](#bad-binding--good-binding)
 
 <br />
 
