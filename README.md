@@ -221,7 +221,8 @@ _Or, you can set Resource key like using `Converter`._
 ## Bad Binding & Good Binding 
 
 ### :heavy_check_mark: If the property you want to bind is included in Datacontext, <br /> &nbsp; &nbsp; &nbsp; you don't have to use ElementBinding.
-&nbsp; &nbsp; &nbsp; _Using ElementBinding through connected control is not a functional problem, <ins>but it breaks the fundamental pattern of Binding</ins>._   
+&nbsp; &nbsp; &nbsp; _Using ElementBinding through connected control is not a functional problem,  
+&nbsp; &nbsp; &nbsp; <ins>but it breaks the fundamental pattern of Binding</ins>._   
 
 #### :slightly_frowning_face: Bad Binding 
 ```xaml
