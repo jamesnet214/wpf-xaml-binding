@@ -160,6 +160,39 @@ In addition to the properties of the controls found, the properties within the D
 ```
 <br />
 
+If you want to bind another `DataContext` other than the currently bound `DataContext`, you can use the following method.
+```csharp
+public partial class A : UserControl
+{
+    public A()
+    {
+        InitializeComponent();
+        DataContext = new MainViewModel();
+    }
+    
+public class MainViewModel
+{
+    public B G1VM { get; set; } = new B();
+    public C G2VM { get; set; } = new C();
+}
+```
+```xaml
+<TabControl DataContext="{Binding G1VM}">
+    <TabItem Header="TMP">
+        <DataGrid ItemsSource="{Binding datagrid}" 
+                  DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.G1VM}"/>
+    </TabItem>
+</TabControl>
+```
+```xaml
+<TabControl DataContext="{Binding G1VM}">
+    <TabItem Header="TMP">
+        <DataGrid ItemsSource="{Binding datagrid}" 
+                  DataContext="{Binding Parent.G2VM}"/>
+    </TabItem>
+</TabControl>
+```
+
 ### TemplatedParent Binding
 This is a method that can be used within `ControlTemplate`, and you can import the control that is the owner of the `ControlTemplate`.
 ```xaml
