@@ -170,10 +170,11 @@ public partial class A : UserControl
         DataContext = new MainViewModel();
     }
     
-public class MainViewModel
-{
-    public B G1VM { get; set; } = new B();
-    public C G2VM { get; set; } = new C();
+    public class MainViewModel
+    {
+        public B G1VM { get; set; } = new B();
+        public C G2VM { get; set; } = new C();
+    }
 }
 ```
 ```xaml
