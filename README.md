@@ -205,6 +205,8 @@ public partial class A : UserControl
 </DataTrigger>
 ```
 
+이와 같은 방법으로 Trigger를 설계한다면 복잡한 UI에서도 손쉽게 트리거를 통한 다양한 UI 처리를 손쉽게 할 수 있습니다.
+
 ### TemplatedParent Binding
 This is a method that can be used within `ControlTemplate`, and you can import the control that is the owner of the `ControlTemplate`.
 ```xaml
