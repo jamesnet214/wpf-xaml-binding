@@ -90,8 +90,8 @@ Because we're going to bind an object.
 Not only String but also various types are possible. Because DataContext is an object type.
 <br />
 
-### Finally... 
-In using Binding at WPF, most developers are not fully aware of the existence, function and importance of DataContext.  
+### In using Binding at WPF, 
+ most developers are not fully aware of the existence, function and importance of DataContext.  
 It may mean that Binding is being connected by luck.   
 > __Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.__
 <br />
@@ -153,8 +153,18 @@ Imports based on the parent control closest to it.
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
 ```
+<br />
 
-In addition to the properties of the controls found, the properties within the DataContext object can be used if it exists.
+It is good for accessing DependencyProperty of parent objects in `Trigger`.
+```xaml
+<DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" Value="True">
+    <Setter Property="Background" Value="#DDDDDD"/>
+</DataTrigger>
+```
+<br />
+
+In addition to the properties of the controls found, the properties within the DataContext object can be used if it exists.  
+However, it is recommended that you avoid accessing `DataContext` (ViewModel) of the parent object as much as possible.
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Email}"/>
 ```
@@ -179,33 +189,17 @@ public partial class A : UserControl
 ```
 ```xaml
 <TabControl DataContext="{Binding G1VM}">
-    <TabItem Header="TMP">
-        <DataGrid ItemsSource="{Binding datagrid}" 
-                  DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.G1VM}"/>
-    </TabItem>
+  <TabItem Header="TMP">
+    <DataGrid ItemsSource="{Binding datagrid}" 
+              DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}, 
+                                                    Path=DataContext.G1VM}"/>
+    <!--It can also be expressed as follows.-->
+    <!--<DataGrid ItemsSource="{Binding datagrid}" 
+                  DataContext="{Binding Parent.G2VM}"/>-->
+  </TabItem>
 </TabControl>
 ```
-```xaml
-<TabControl DataContext="{Binding G1VM}">
-    <TabItem Header="TMP">
-        <DataGrid ItemsSource="{Binding datagrid}" 
-                  DataContext="{Binding Parent.G2VM}"/>
-    </TabItem>
-</TabControl>
-```
-
-이 방법을 통해 자유롭게 부모의 속성 또는 DataContext에 자유롭게 접근할 수 있습니다. 하지만 가급적 상위 객체의 DataContext(즉 ViewModel)과 같은 데이터에 접근하는 것은 지양합니다.
-
-그렇다면 어떤 상황에서 사용하는 것이 좋을까요?
-
-상위 부모 객체의 속성(DependencyProperty)를 접근해서 Trigger를 만든다면 좋을 것입니다.
-```xaml
-<DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" Value="True">
-    <Setter Property="Background" Value="#DDDDDD"/>
-</DataTrigger>
-```
-
-이와 같은 방법으로 Trigger를 설계한다면 복잡한 UI에서도 손쉽게 트리거를 통한 다양한 UI 처리를 손쉽게 할 수 있습니다.
+<br />
 
 ### TemplatedParent Binding
 This is a method that can be used within `ControlTemplate`, and you can import the control that is the owner of the `ControlTemplate`.
