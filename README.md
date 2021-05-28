@@ -191,8 +191,7 @@ public partial class A : UserControl
 <TabControl DataContext="{Binding G1VM}">
   <TabItem Header="TMP">
     <DataGrid ItemsSource="{Binding datagrid}" 
-              DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}, 
-                                                    Path=DataContext.G1VM}"/>
+              DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.G1VM}"/>
     <!--It can also be expressed as follows.-->
     <!--<DataGrid ItemsSource="{Binding datagrid}" 
                   DataContext="{Binding Parent.G2VM}"/>-->
