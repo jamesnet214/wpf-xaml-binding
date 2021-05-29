@@ -315,3 +315,6 @@ _Or, you can set Resource key like using `Converter`._
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
 ```
+
+## Reference
+[:bookmark_tabs:](https://stackoverflow.com/questions/84278/how-do-i-use-wpf-bindings-with-relativesource) **StackOverflow** &nbsp; <ins>How do I use WPF bindings with RelativeSource?</ins>
