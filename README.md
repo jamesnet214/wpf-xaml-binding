@@ -2,12 +2,14 @@
   
 이 리포지토리는 WPF Xaml Binding 개념과 기술을 활용하는데 필요한 설명을 다루는 Article입니다.
 
-<a href="https://github.com/devncore/devncore"><strong>이 글의 Contributors »</strong></a>
+<a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
   
 | Star | License | Activity |
 |:----:|:-------:|:--------:|
 | <a href="https://github.com/devncore/wpf-xaml-binding/stargazers"><img src="https://img.shields.io/github/stars/devncore/wpf-xaml-binding" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/wpf-xaml-binding" alt="License"> | <a href="https://github.com/devncore/wpf-xaml-binding/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/wpf-xaml-binding" alt="Commits-per-month"></a> |
-  
+
+<br />
+
 ## Overview
 - [DataContext](#datacontext)
 - [Binding](#binding)
