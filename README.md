@@ -86,7 +86,8 @@ Because we're going to bind an object.
 Not only String but also various types are possible. Because DataContext is an object type.
 <br />
 
-### In using Binding at WPF, 
+### In using Binding at WPF,
+
  most developers are not fully aware of the existence, function and importance of DataContext.  
 It may mean that Binding is being connected by luck.   
 > __Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.__
@@ -94,6 +95,7 @@ It may mean that Binding is being connected by luck.
 
 * * *  
 ## Binding
+
 - [DataContext Binding](#datacontext-binding)
 - [Element Binding](#element-binding)
 - [MultiBinding](#multibinding)
@@ -104,6 +106,7 @@ It may mean that Binding is being connected by luck.
 <br />
 
 ### DataContext Binding
+
 `string property`
 ```xaml
 <TextBox Text="{Binding Keywords}"/>
@@ -111,6 +114,7 @@ It may mean that Binding is being connected by luck.
 <br />
 
 ### Element Binding
+
 ```xaml
 <CheckBox x:Name="usingEmail"/>
 <TextBlock Text="{Binding ElementName=usingEmail, Path=IsChecked}"/>
@@ -118,6 +122,7 @@ It may mean that Binding is being connected by luck.
 <br />
 
 ### MultiBinding
+
 ```xaml
 <TextBlock Margin="5,2" Text="This disappears as the control gets focus...">
   <TextBlock.Visibility>
@@ -144,6 +149,7 @@ You no longer have to declare `x:Name` to bind your own property.
 <br />
  
 ### Find Ancestor Binding
+
 Imports based on the parent control closest to it.
 
 ```xaml
@@ -197,6 +203,7 @@ public partial class A : UserControl
 <br />
 
 ### TemplatedParent Binding
+
 This is a method that can be used within `ControlTemplate`, and you can import the control that is the owner of the `ControlTemplate`.
 
 ```xaml
@@ -282,6 +289,7 @@ _Or, you can set Resource key like using `Converter`._
 ...
 <TextBlock Text="{Binding UserName}"/>
 ```
+
 <br />
 
 ### :heavy_check_mark: Do not use ElementBinding when using property belonging to higher layers control.   
