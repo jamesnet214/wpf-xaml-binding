@@ -199,7 +199,7 @@ public partial class A : UserControl
 ### TemplatedParent Binding
 This is a method that can be used within `ControlTemplate`, and you can import the control that is the owner of the `ControlTemplate`.
 
-```xaml
+```
 <Style TargetType="Button">
   <Setter Property="Template">
       <Setter.Value>
@@ -208,6 +208,7 @@ This is a method that can be used within `ControlTemplate`, and you can import t
           </ControlTemplate>
       </Setter.Value>
   </Setter>
+</Style>
 ```
 
 You can access to all Property and DataContext.
