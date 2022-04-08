@@ -212,6 +212,7 @@ This is a method that can be used within `ControlTemplate`, and you can import t
 ```
 
 You can access to all Property and DataContext.
+
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
 ```
@@ -221,6 +222,7 @@ You can access to all Property and DataContext.
 You can access binding property value directly.   
 
 #### 1. Declare `static` property.
+
 ```csharp
 namespace Exam
 {
@@ -232,16 +234,19 @@ namespace Exam
 ```
 
 #### 2. Using static class in XAML.
+
 ```xaml
 <Window ... xmlns:exam="clr-namespace:Exam">
 ```
 
 #### 3. Binding property.
+
 ```xaml
 <TextBlock Text="{Binding exam:ExamClass.ExamText}"/>
 ```
 
 _Or, you can set Resource key like using `Converter`._  
+
 ```xaml
 <Window.Resource>
   <cvt:VisibilityToBooleanConverter x:Key="VisibilityToBooleanConverter"/>
@@ -263,6 +268,7 @@ _Or, you can set Resource key like using `Converter`._
 &nbsp; &nbsp; &nbsp; <ins>but it breaks the fundamental pattern of Binding</ins>._   
 
 #### :slightly_frowning_face: Bad Binding 
+
 ```xaml
 <TextBox x:Name="text" Text="{Binding UserName}"/>
 ...
@@ -270,6 +276,7 @@ _Or, you can set Resource key like using `Converter`._
 ```
    
 #### :grinning: Good Binding
+
 ```xaml
 <TextBox Text="{Binding UserName}"/>
 ...
@@ -280,6 +287,7 @@ _Or, you can set Resource key like using `Converter`._
 ### :heavy_check_mark: Do not use ElementBinding when using property belonging to higher layers control.   
 
 #### :slightly_frowning_face: Bad Binding 
+
 ```xaml
 <Window x:Name="win">
   <TextBlock Text="{Binding ElementName=win, Path=DataContext.UserName}"/>
@@ -287,6 +295,7 @@ _Or, you can set Resource key like using `Converter`._
 ```
     
 #### :grinning: Good Binding
+
 ```xaml
 <Window>
   <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.UserName}"/>
@@ -294,6 +303,7 @@ _Or, you can set Resource key like using `Converter`._
 ```      
 
 #### :laughing: Great!
+
 ```xaml
 <Window>
   <TextBlock DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext}" 
@@ -305,11 +315,13 @@ _Or, you can set Resource key like using `Converter`._
 ### :heavy_check_mark: Do not use ElementBinding when using your own properties.   
 
 #### :slightly_frowning_face: Bad Binding 
+
 ```xaml
 <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Foreground}"/>
 ```
 
 #### :grinning: Good Binding
+
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
 ```
