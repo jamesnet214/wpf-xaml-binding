@@ -32,9 +32,9 @@ namespace System.Windows
 }
 ```
 
-And, all UI Controls in WPF inherit the `FrameworkElement` class.   
-> At this point in learning Binding or DataContext, you don't have to study FrameworkElement in greater depth.  
-> However, this is to briefly mention the fact that the closest object that can encompass all UI Controls is the FrameworkElement.   
+그리고 WPF의 모든 UI 컨트롤은 FrameworkElement 클래스를 상속합니다. 
+> 바인딩 또는 데이터 컨텍스트를 배워가는 시점에서 FrameworkElement를 더 깊이 연구할 필요가 없습니다.
+> 하지만 모든 UI 컨트롤을 포함할 수 있는 가장 가까운 개체가 FrameworkElement라는 사실을 간단히 언급하기 위함입니다.
 <br />
 
 ### _DataContext is always the reference point for Binding._ 
@@ -42,23 +42,23 @@ Binding can directly recall values for the DataContext type format starting with
 ```xaml
 <TextBlock Text="{Binding}" DataContext="James"/>
 ```
-The value bound to `Text="{Binding}"` is passed directly from the nearest DataContext, `TextBlock`.  
-Therefore, the Binding result value of `Text` is 'James'.      
+'Text="{Binding}"에 바인딩된 값은 가장 가까운 데이터 컨텍스트인 'TextBlock'에서 직접 전달됩니다.
+따라서 'Text'의 바인딩 결과 값은 'James'입니다.
 <br />
 
 - __Type integer__  
-When assigning a value to DataContext directly from Xaml, resource definitions are required first for value types such as Integer and Boolean.
-Because all strings are recognized as String.   
+Xaml에서 DataContext에 직접 값을 할당하는 경우 정수 및 부울과 같은 값 유형에 대해 먼저 리소스 정의가 필요합니다.
+왜냐하면 모든 문자열이 문자열로 인식되기 때문입니다.
 
-    #### 1. Using System `mscrolib` in Xaml
+    #### 1. Xaml에서 System 'mscrollib' 사용
     > Simple type variable type is not supported by standard.  
-    > You can define it with any word, but mostly use `sys` words.  
+    > 어떤 단어로도 정의할 수 있지만 대부분 'sys' 단어를 사용합니다.
     ```xaml
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     ```
 
-    #### 2. Create `YEAR` resource key in xaml
-    > Declare the value of the type you want to create in the form of a StaticResource.
+    #### 2. xaml에서 'YEAR' 리소스 키 생성
+    > StaticResource 형식으로 생성할 유형의 값을 선언합니다.
     ```xaml
     <Window.Resources>
         <sys:Int32 x:Key="YEAR">2020</sys:Int32>
@@ -68,7 +68,7 @@ Because all strings are recognized as String.
     ```
 
 - __All type of value__  
-There are very few cases where Value Type is binding directly into DataContext.   
+값이 데이터 컨텍스트에 직접 바인딩되는 경우는 거의 없습니다.    
 Because we're going to bind an object.
     ```xaml
     <Window.Resources>
@@ -83,14 +83,15 @@ Because we're going to bind an object.
     ```
 
 - __Another type__  
-Not only String but also various types are possible. Because DataContext is an object type.
+스트링뿐만 아니라 다양한 타입이 가능합니다. 데이터 컨텍스트가 객체이기 때문입니다.
 <br />
 
-### In using Binding at WPF,
+### WPF에서 바인딩을 사용할 때,
 
- most developers are not fully aware of the existence, function and importance of DataContext.  
+ 대부분의 개발자들은 DataContext의 존재, 기능 및 중요성에 대해 완전히 알지 못합니다.    
 It may mean that Binding is being connected by luck.   
 > __Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.__
+>  __특히 대규모 WPF 프로젝트를 담당하거나 참여하는 경우 애플리케이션의 DataContext 계층을 보다 명확하게 이해해야 합니다. 또한 이 DataContext 개념이 없으면 기능을 자유롭게 구현하는 데 한계가 있을 것입니다.__
 <br />
 
 * * *  
@@ -140,8 +141,8 @@ It may mean that Binding is being connected by luck.
 ```xaml
 <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
 ```
-If you have to bind your own property, you can use `Self Property Binding`, instead of using `Element Binding`.  
-You no longer have to declare `x:Name` to bind your own property.  
+자신의 속성을 바인딩해야 하는 경우 요소 바인딩 대신 자체 속성 바인딩을 사용할 수 있습니다.
+자신의 속성을 바인딩하기 위해 x:Name을 선언할 필요가 없습니다.
 
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
