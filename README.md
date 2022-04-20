@@ -159,7 +159,7 @@ It may mean that Binding is being connected by luck.
 ```
 <br />
 
-'Trigger'에서 상위 개체의 속성에 액세스할 때 유용합니다.
+`Trigger`에서 상위 개체의 속성에 액세스할 때 유용합니다.
 ```xaml
 <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" Value="True">
     <Setter Property="Background" Value="#DDDDDD"/>
@@ -167,14 +167,14 @@ It may mean that Binding is being connected by luck.
 ```
 <br />
 
-In addition to the properties of the controls found, the properties within the DataContext object can be used if it exists.  
-However, it is recommended that you avoid accessing `DataContext` (ViewModel) of the parent object as much as possible.
+DataContext 객체가 있는 경우 해당 속성을 사용할 수 있습니다.    
+그러나 `DataContext`(ViewModel)에 대한 접근은 가급적 피하는 것이 좋습니다.
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Email}"/>
 ```
 <br />
 
-If you want to bind another `DataContext` other than the currently bound `DataContext`, you can use the following method.
+현재 바인딩된 `DataContext`가 아닌 다른 `DataContext`를 바인딩하려는 경우 다음 방법을 사용할 수 있습니다.
 ```csharp
 public partial class A : UserControl
 {
@@ -206,7 +206,7 @@ public partial class A : UserControl
 
 ### TemplatedParent Binding
 
-This is a method that can be used within `ControlTemplate`, and you can import the control that is the owner of the `ControlTemplate`.
+`ControlTemplate` 내에서 사용할 수 있는 메서드로 `ControlTemplate`의 자신의 속성을 가져올 수 있습니다.
 
 ```xaml
 <Style TargetType="Button">
@@ -220,7 +220,7 @@ This is a method that can be used within `ControlTemplate`, and you can import t
 </Style>
 ```
 
-You can access to all Property and DataContext.
+모든 속성 및 데이터 컨텍스트에 접근할 수 있습니다.
 
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
@@ -228,9 +228,9 @@ You can access to all Property and DataContext.
 <br />
 
 ### Static Property Binding
-You can access binding property value directly.   
+바인딩 속성 값에 직접 접근할 수 있습니다.    
 
-#### 1. Declare `static` property.
+#### 1. `static` 속성을 선언합니다.
 
 ```csharp
 namespace Exam
@@ -242,7 +242,7 @@ namespace Exam
 } 
 ```
 
-#### 2. Using static class in XAML.
+#### 2. XAML에서 정적 클래스를 사용합니다.
 
 ```xaml
 <Window ... xmlns:exam="clr-namespace:Exam">
@@ -254,7 +254,7 @@ namespace Exam
 <TextBlock Text="{Binding exam:ExamClass.ExamText}"/>
 ```
 
-_Or, you can set Resource key like using `Converter`._  
+_또는 `Converter`를 사용하는 것처럼 리소스 키를 설정할 수 있습니다._  
 
 ```xaml
 <Window.Resource>
@@ -272,7 +272,7 @@ _Or, you can set Resource key like using `Converter`._
 * * *  
 ## Bad Binding & Good Binding 
 
-### :heavy_check_mark: If the property you want to bind is included in Datacontext, <br /> &nbsp; &nbsp; &nbsp; you don't have to use ElementBinding.
+### :heavy_check_mark: 바인딩할 속성이 데이터 컨텍스트에 포함된 경우ElementBinding을 사용할 필요가 없습니다.
 &nbsp; &nbsp; &nbsp; _Using ElementBinding through connected control is not a functional problem,  
 &nbsp; &nbsp; &nbsp; <ins>but it breaks the fundamental pattern of Binding</ins>._   
 
@@ -294,7 +294,7 @@ _Or, you can set Resource key like using `Converter`._
 
 <br />
 
-### :heavy_check_mark: Do not use ElementBinding when using property belonging to higher layers control.   
+### :heavy_check_mark: 상위 컨트롤의 속성을 사용할 때는 ElementBinding을 사용하지 마세요.    
 
 #### :slightly_frowning_face: Bad Binding 
 
@@ -322,7 +322,7 @@ _Or, you can set Resource key like using `Converter`._
 ```
 <br />
 
-### :heavy_check_mark: Do not use ElementBinding when using your own properties.   
+### :heavy_check_mark: 자신의 속성을 사용할 때 ElementBinding을 사용하지 마세요.    
 
 #### :slightly_frowning_face: Bad Binding 
 
