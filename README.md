@@ -18,7 +18,7 @@
 <br />
 
 ## DataContext
-__DataContext is the DependencyProperty included in the FrameworkElement.__  
+__DataContext는 FrameworkElement에 포함된 속성입니다.__  
 `PresentationFramework.dll`
 
 ```csharp
