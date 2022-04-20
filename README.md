@@ -32,7 +32,7 @@ namespace System.Windows
 }
 ```
 
-그리고 WPF의 모든 UI 컨트롤은 FrameworkElement 클래스를 상속합니다. 
+그리고 WPF의 모든 UI 컨트롤은 `FrameworkElement` 클래스를 상속합니다. 
 > 바인딩 또는 데이터 컨텍스트를 배워가는 시점에서 FrameworkElement를 더 깊이 연구할 필요가 없습니다.
 > 하지만 모든 UI 컨트롤을 포함할 수 있는 가장 가까운 개체가 FrameworkElement라는 사실을 간단히 언급하기 위함입니다.
 <br />
@@ -42,22 +42,22 @@ Binding can directly recall values for the DataContext type format starting with
 ```xaml
 <TextBlock Text="{Binding}" DataContext="James"/>
 ```
-'Text="{Binding}"에 바인딩된 값은 가장 가까운 데이터 컨텍스트인 'TextBlock'에서 직접 전달됩니다.
-따라서 'Text'의 바인딩 결과 값은 'James'입니다.
+`Text="{Binding}`에 바인딩된 값은 가장 가까운 데이터 컨텍스트인 `TextBlock`에서 직접 전달됩니다.    
+따라서 `Text`의 바인딩 결과 값은 'James'입니다.
 <br />
 
 - __Type integer__  
 Xaml에서 DataContext에 직접 값을 할당하는 경우 정수 및 부울과 같은 값 유형에 대해 먼저 리소스 정의가 필요합니다.
 왜냐하면 모든 문자열이 문자열로 인식되기 때문입니다.
 
-    #### 1. Xaml에서 System 'mscrollib' 사용
+    #### 1. Xaml에서 System `mscrollib` 사용
     > Simple type variable type is not supported by standard.  
-    > 어떤 단어로도 정의할 수 있지만 대부분 'sys' 단어를 사용합니다.
+    > 어떤 단어로도 정의할 수 있지만 대부분 `sys` 단어를 사용합니다.
     ```xaml
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     ```
 
-    #### 2. xaml에서 'YEAR' 리소스 키 생성
+    #### 2. xaml에서 `YEAR` 리소스 키 생성
     > StaticResource 형식으로 생성할 유형의 값을 선언합니다.
     ```xaml
     <Window.Resources>
@@ -90,7 +90,8 @@ Because we're going to bind an object.
 
  대부분의 개발자들은 DataContext의 존재, 기능 및 중요성에 대해 완전히 알지 못합니다.    
 It may mean that Binding is being connected by luck.   
-> __Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.__
+> __Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.__    
+> <br />
 >  __특히 대규모 WPF 프로젝트를 담당하거나 참여하는 경우 애플리케이션의 DataContext 계층을 보다 명확하게 이해해야 합니다. 또한 이 DataContext 개념이 없으면 기능을 자유롭게 구현하는 데 한계가 있을 것입니다.__
 <br />
 
@@ -141,8 +142,8 @@ It may mean that Binding is being connected by luck.
 ```xaml
 <TextBlock x:Name="txt" Text="{Binding ElementName=txt, Path=Tag}"/>
 ```
-자신의 속성을 바인딩해야 하는 경우 요소 바인딩 대신 자체 속성 바인딩을 사용할 수 있습니다.
-자신의 속성을 바인딩하기 위해 x:Name을 선언할 필요가 없습니다.
+자신의 속성을 바인딩해야 하는 경우 요소 바인딩 대신 `Element Binding`을 사용할 수 있습니다.    
+자신의 속성을 바인딩하기 위해 `x:Name`을 선언할 필요가 없습니다.
 
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
@@ -151,14 +152,14 @@ It may mean that Binding is being connected by luck.
  
 ### Find Ancestor Binding
 
-Imports based on the parent control closest to it.
+가장 가까운 상위 컨트롤을 기준으로 가져옵니다.
 
 ```xaml
 <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
 ```
 <br />
 
-It is good for accessing DependencyProperty of parent objects in `Trigger`.
+'Trigger'에서 상위 개체의 속성에 액세스할 때 유용합니다.
 ```xaml
 <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" Value="True">
     <Setter Property="Background" Value="#DDDDDD"/>
