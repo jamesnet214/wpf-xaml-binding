@@ -11,6 +11,7 @@
 <br />
 
 ## Overview
+
 - [DataContext](#datacontext)
 - [Binding](#binding)
 - [Bad Binding & Good Binding](#bad-binding--good-binding)
@@ -18,6 +19,7 @@
 <br />
 
 ## DataContext
+
 __DataContext는 FrameworkElement에 포함된 속성입니다.__  
 `PresentationFramework.dll`
 
@@ -191,6 +193,7 @@ public partial class A : UserControl
     }
 }
 ```
+
 ```xaml
 <TabControl DataContext="{Binding G1VM}">
   <TabItem Header="TMP">
@@ -228,6 +231,7 @@ public partial class A : UserControl
 <br />
 
 ### Static Property Binding
+
 바인딩 속성 값에 직접 접근할 수 있습니다.    
 
 #### 1. `static` 속성을 선언합니다.
