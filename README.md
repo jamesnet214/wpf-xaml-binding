@@ -10,14 +10,6 @@
 
 <br />
 
-## Overview
-
-- [DataContext](#datacontext)
-- [Binding](#binding)
-- [Bad Binding & Good Binding](#bad-binding--good-binding)
-
-<br />
-
 ## DataContext
 
 __DataContext는 FrameworkElement에 포함된 속성입니다.__  
@@ -88,16 +80,12 @@ Because we're going to bind an object.
 스트링뿐만 아니라 다양한 타입이 가능합니다. 데이터 컨텍스트가 객체이기 때문입니다.
 <br />
 
-### WPF에서 바인딩을 사용할 때,
+WPF에서 바인딩을 사용할 때, 대부분의 개발자들은 DataContext의 기능 및 중요성에 대해 완전히 알지 못합니다. 특히 대규모 WPF 프로젝트를 담당하거나 참여하는 경우 애플리케이션의 DataContext 계층을 보다 명확하게 이해해야 합니다. DataContext 개념이 없으면 기능을 자유롭게 구현하는 데 한계가 있기 때문입니다.
 
- 대부분의 개발자들은 DataContext의 존재, 기능 및 중요성에 대해 완전히 알지 못합니다.    
-It may mean that Binding is being connected by luck.   
-> __Especially if you are responsible for or participating in a large WPF project, you should understand the DataContext hierarchy of the application more clearly. In addition, the introduction of WPF's various popular MVVM Framework systems without this DataContext concept will create even greater limitations in implementing functions freely.__    
-> <br />
->  __특히 대규모 WPF 프로젝트를 담당하거나 참여하는 경우 애플리케이션의 DataContext 계층을 보다 명확하게 이해해야 합니다. 또한 이 DataContext 개념이 없으면 기능을 자유롭게 구현하는 데 한계가 있을 것입니다.__
-<br />
+<br>
 
 * * *  
+
 ## Binding
 
 - [DataContext Binding](#datacontext-binding)
@@ -270,15 +258,14 @@ _또는 `Converter`를 사용하는 것처럼 리소스 키를 설정할 수 있
 <TextBlock Text="{Binding Source={StaticResource ExamClass}, Path=ExamText}"/>
 ```
 
-> I have never used the Static Property under normal circumstances. This is because data that deviates from its own DataContext can disrupt the flow of whole WPF applications and impair readability significantly. However, this method is actively used in the development stage to implement fast testing and functions, as well as in the DataContext (or ViewModel).  
 <br />
 
 * * *  
+
 ## Bad Binding & Good Binding 
 
-### :heavy_check_mark: 바인딩할 속성이 데이터 컨텍스트에 포함된 경우ElementBinding을 사용할 필요가 없습니다.
-&nbsp; &nbsp; &nbsp; _Using ElementBinding through connected control is not a functional problem,  
-&nbsp; &nbsp; &nbsp; <ins>but it breaks the fundamental pattern of Binding</ins>._   
+#### :heavy_check_mark: 바인딩할 속성이 DataContext에 포함된 경우 ElementBinding을 사용할 필요가 없습니다.
+DataContext에 포함된 속성에 해대해 ElementBinding을 사용하는 것은 기능적으로 문제가 없지만, 바인딩의 기본 패턴을 깰 수 있습니다.
 
 #### :slightly_frowning_face: Bad Binding 
 
@@ -298,7 +285,7 @@ _또는 `Converter`를 사용하는 것처럼 리소스 키를 설정할 수 있
 
 <br />
 
-### :heavy_check_mark: 상위 컨트롤의 속성을 사용할 때는 ElementBinding을 사용하지 마세요.    
+#### :heavy_check_mark: 상위 컨트롤의 속성을 사용할 때는 ElementBinding을 사용하지 마세요.    
 
 #### :slightly_frowning_face: Bad Binding 
 
@@ -326,7 +313,7 @@ _또는 `Converter`를 사용하는 것처럼 리소스 키를 설정할 수 있
 ```
 <br />
 
-### :heavy_check_mark: 자신의 속성을 사용할 때 ElementBinding을 사용하지 마세요.    
+#### :heavy_check_mark: 자기 자신의 속성을 사용할 때 ElementBinding을 사용하지 마세요.    
 
 #### :slightly_frowning_face: Bad Binding 
 
@@ -340,7 +327,7 @@ _또는 `Converter`를 사용하는 것처럼 리소스 키를 설정할 수 있
 <TextBlock Text="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
 ```
 
+<br>
+
 ## Reference
 [:bookmark_tabs:](https://stackoverflow.com/questions/84278/how-do-i-use-wpf-bindings-with-relativesource) **StackOverflow** &nbsp; <ins>How do I use WPF bindings with RelativeSource?</ins>
-
-<br />
